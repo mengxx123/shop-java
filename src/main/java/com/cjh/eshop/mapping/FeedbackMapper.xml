@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.feedbackMapper">
+	<resultMap id="BaseResultMap" type="Feedback">
+		<id column="feedback_id" property="id" />
+		<result column="feedback_type" property="type" />
+		<result column="content" property="content" />
+		<result column="feedback_time" property="time" />
+		<result column="is_read" property="isRead" />
+		<association property="user" javaType="User">
+			<id property="id" column="user_id" />
+			<id property="name" column="user_name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		feedback_id, user_id, feedback_type, content, feedback_time, is_read
+	</sql>
+	<select id="getAll" resultMap="BaseResultMap">
+		select * 
+		from es_feedback f,
+		eb_user u where f.user_id = u.user_id
+		order by feedback_time DESC
+	</select>
+	<insert id="insert" parameterType="Feedback">
+		insert into es_feedback(user_id, feedback_type, content)
+		values (#{user.id}, #{type}, #{content})
+	</insert>
+	<update id="updateById" parameterType="Feedback">
+		update es_feedback
+		set user_id = #{id}, feedback_type = #{type}, content = #{content}, feedback_time = #{time},
+			is_read = #{isRead}
+		where feedback_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_feedback
+		where feedback_id = #{id}
+	</delete>
+</mapper>

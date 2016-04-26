@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.brandMapper">
+	<resultMap id="BaseResultMap" type="Brand">
+		<id column="brand_id" property="id" />
+		<result column="brand_name" property="name" />
+		<result column="brand_icon" property="icon" />
+		<result column="add_time" property="addTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		brand_id, brand_name, brand_icon, add_time
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_brand
+		where brand_id = #{id}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select * from es_brand order by add_time DESC
+	</select>
+	<select id="selectBySearch" parameterType="Brand" resultMap="BaseResultMap">
+		SELECT * FROM es_brand
+		<where>
+			<if test="#{name} != null">brand_name LIKE CONCAT('%','${name}','%' )</if>
+		</where>
+		order by add_time DESC
+	</select>
+	<insert id="insert" parameterType="Brand">
+		insert into es_brand (brand_id, brand_name, brand_icon, add_time)
+		values (#{id}, #{name}, #{icon}, #{addTime})
+	</insert>
+	<update id="updateById" parameterType="Brand">
+		update es_brand
+		set brand_name = #{name}, brand_icon = #{icon}, add_time = #{addTime}
+		where brand_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_brand
+		where brand_id = #{id}
+	</delete>
+
+</mapper>

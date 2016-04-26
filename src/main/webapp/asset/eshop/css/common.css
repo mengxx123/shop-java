@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #32b16c;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: "Microsoft YaHei";
+    padding-top: 85px;
+    background: #E3EEEC;
+}
+
+.es-box {
+    padding: 15px;
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+.es-section {
+    background: #fff;
+    margin-bottom: 15px;
+}
+.panel-es {
+    border-radius: 0;
+}
+.panel-es .panel-heading {
+    color: #666666;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+}
+.panel-es .panel-body {
+
+}
+/* 头部 */
+.es-header {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.es-header .navbar-brand {
+    color: #32b16c;
+    font-size: 35px;
+}
+
+/* 页脚 */
+.es-footer {
+    height: 150px;
+    text-align: center;
+    background-image: url("../img/footer-bg.png");
+    background-size: 100% 100%;
+    border-top: #f1f1f1 solid 1px;
+}
+.es-footer .link {
+    display: inline-block;
+    padding-top: 20px;
+}
+.es-footer .link li {
+    float: left;
+}
+.es-footer .copyright {
+    padding-top: 10px;
+    color: #999;
+}

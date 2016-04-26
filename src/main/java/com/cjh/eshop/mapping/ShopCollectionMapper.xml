@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.shopCollectionMapper">
+	<resultMap id="BaseResultMap" type="ShopCollection">
+		<id column="collection_id" property="id" />
+		<result column="create_time" property="createTime" /> 
+		<association property="user" javaType="User">
+			<id column="user_id" property="id" /> 
+		</association> 
+		<association property="shop" javaType="Shop">
+			<id column="shop_id" property="id" />
+			<id column="shop_name" property="name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		collection_id, user_id, shop_id, create_time
+	</sql>
+	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_shop_collection c
+		left join es_shop s
+		on c.shop_id = s.shop_id
+		where c.user_id = #{id}
+		order by
+		c.create_time DESC
+	</select>
+	<delete id="deleteById" parameterType="String">
+		delete from es_shop_collection
+		where collection_id = #{id}
+	</delete>
+	<delete id="deleteByShopId" parameterType="String">
+		delete from es_shop_collection
+		where shop_id = #{id}
+	</delete>
+</mapper>

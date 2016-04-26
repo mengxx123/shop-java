@@ -1,0 +1,81 @@
+/* reset */
+a {
+    text-decoration: none;
+}
+ul {
+    padding-left: 0;
+}
+li {
+    list-style: none;
+
+}
+body {
+    padding-top: 50px;
+    background: #eee;
+}
+.mycontainer {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+/*
+@media (min-width: 768px) {
+    .mycontainer {
+        width: 760px;
+    }
+}
+@media (min-width: 992px) {
+    .mycontainer {
+        width: 990px;
+    }
+}
+@media (min-width: 1200px) {
+    .mycontainer {
+        width: 1170px;
+    }
+}
+*/
+.avatar {
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+.avatar-lg {
+    width: 120px !important;
+    height: 120px !important;
+}
+.avatar-md {
+    width: 60px !important;
+    height: 60px !important;
+}
+.avatar-sm {
+    width: 40px !important;
+    height: 40px !important;
+}
+.avatar-xs {
+    width: 30px !important;
+    height: 30px !important;
+}
+.avatar-xxs {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* 页脚 */
+.es-footer {
+    height: 150px;
+    text-align: center;
+    background: #fff;
+    border-top: #f1f1f1 solid 1px;
+}
+.es-footer .link {
+    display: inline-block;
+    padding-top: 20px;
+}
+.es-footer .link li {
+    float: left;
+}
+.es-footer .copyright {
+    padding-top: 10px;
+    color: #999;
+}

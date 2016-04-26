@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjh.eshop.mapping.userMapper">
+	<resultMap id="userResultMap" type="User">
+		<id column="user_id" property="id" />
+		<result column="user_name" property="name" />
+		<result column="password" property="password" />
+		<result column="email" property="email" />
+		<result column="nickname" property="nickname" />
+		<result column="head_image" property="headPath" />
+		<result column="is_email_valid" property="isEmailValid" />
+		<result column="register_time" property="registerTime" />
+		<result column="description" property="description" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		user_id, user_name, password, email, nickname, head_image, is_email_valid, register_time,
+		description
+	</sql>
+	<select id="selectById" parameterType="String" resultMap="userResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_user 
+		where user_id = #{id}
+	</select>
+	<select id="selectByUserName" parameterType="String" resultMap="userResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_user 
+		where user_name = #{useName}
+	</select>
+	<select id="selectByEmail" parameterType="String" resultMap="userResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_user 
+		where email = #{email}
+	</select>
+	<select id="selectByNickName" parameterType="String" resultMap="userResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_user 
+		where nickname = #{nickname}
+	</select>
+	<insert id="insert" parameterType="User">
+		insert into eb_user(user_id, user_name, password, email, nickname) 
+		values(${id}, #{name}, #{password}, #{email}, #{nickname})
+	</insert>
+	<select id="selectAll" resultMap="userResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_user
+	</select>
+	<update id="updateById" parameterType="User">
+		update eb_user
+		set user_name=#{name}, password=#{password}, email=#{email},
+			nickname=#{nickname} where user_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from eb_user
+		where user_id = #{id}
+	</delete>
+</mapper>

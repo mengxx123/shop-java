@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.messageMapper">
+	<resultMap id="BaseResultMap" type="Message">
+		<id column="message_id" property="id" />
+		<result column="content" property="content" />
+		<result column="send_time" property="sendTime" />
+		<result column="is_read" property="isRead" />
+		<association property="user" javaType="User">
+			<id column="user_id" property="id" />
+		</association>
+		<association property="sendUser" javaType="User">
+			<id column="send_user_id" property="id" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		message_id, content, user_id, send_user_id, send_time, is_read
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_message
+		where message_id = #{id}
+	</select>
+	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_message
+		where user_id = #{id}
+		order by send_time DESC
+	</select>
+	<select id="selectByExample" parameterType="Message" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" /> 
+		FROM es_message
+		<where>
+			<if test="user != null and user.id != null">user_id = #{user.id}</if>
+			<if test="sendUser != null and sendUser.id != null">and send_user_id = #{sendUser.id}</if>
+		</where>
+		order by send_time DESC
+	</select>
+	<select id="selectByExample2" parameterType="Message" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" /> 
+		FROM es_message
+		where user_id = #{user.id} and send_user_id = #{sendUser.id}
+			or user_id = #{sendUser.id} and send_user_id = #{user.id}
+		order by send_time
+	</select>
+	<update id="updateByIdSelective" parameterType="Message" flushCache="true">  
+        update es_message  
+        <set>  
+            <if test="isRead != null">  
+                is_read = #{isRead},  
+            </if>  
+        </set>  
+        where message_id = #{id}
+    </update>  
+	<delete id="deleteById" parameterType="String">
+		delete from es_message
+		where message_id = #{id}
+	</delete>
+</mapper>

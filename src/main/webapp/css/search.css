@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 主要内容 */
+.content {
+	padding: 0 30px;
+}
+.big-title {
+	color: #b61d1d;
+	font-size: 25px;
+	border-bottom: #b61d1d solid 2px;
+}
+.goods-list {
+	overflow: auto;
+}
+.goods-list li {
+	float: left;
+	width: 20%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.goods-image {
+	width: 100%;
+	height: 250px;
+	background: url(../images/loading.gif) no-repeat;
+	background-position: 90px 70px;
+}
+.goods-name {}
+.goods-price {
+	color: #f00;
+}
+/*  */
+.no-result {
+	width: 400px;
+	margin: 0 auto;
+	padding: 50px 0;
+}

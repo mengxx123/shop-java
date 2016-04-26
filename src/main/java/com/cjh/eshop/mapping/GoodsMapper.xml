@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.goodsMapper">
+	<resultMap id="BaseResultMap" type="Goods">
+		<id column="goods_id" property="id" />
+		<result column="goods_name" property="name" />
+		<result column="goods_desc" property="description" />
+		<result column="goods_price" property="price" />
+		<result column="click_count" property="clickCount" />
+		<result column="goods_number" property="number" />
+		<result column="goods_img" property="image" />
+		<result column="is_on_sale" property="isOnSale" />
+		<result column="is_free_postage" property="isFreePostage" />
+		<result column="modify_time" property="modifyTime" />
+		<result column="create_time" property="createTime" />
+		<result column="collection_count" property="collectionCount" />
+		<association property="shop" javaType="Shop">
+			<id column="shop_id" property="id" />
+			<id column="shop_name" property="name" />
+		</association>
+		<association property="brand" javaType="Brand">
+			<id column="brand_id" property="id" />
+			<id column="brand_name" property="name" />
+		</association>
+		<association property="category" javaType="GoodsCategory">
+			<id column="cat_id" property="id" />
+			<id column="cat_name" property="name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		goods_id, goods_name, goods_desc, goods_price, shop_id, cat_id, click_count, goods_number,
+		goods_img, is_on_sale, is_free_postage, brand_id, modify_time, create_time
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_goods
+		where goods_id = #{id}
+	</select>
+	<select id="selectByCategoryId" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_goods
+		where cat_id = #{id}
+	</select>
+	<select id="selectByKeyWord" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_goods
+		where goods_name LIKE CONCAT('%','${_parameter}','%' )
+		order by create_time DESC
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select *
+		from es_goods
+		order by create_time DESC
+	</select>
+	<select id="selectByShopId" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_goods g
+		left join es_goods_category c
+		on g.cat_id = c.cat_id
+		where g.shop_id = #{id}
+		order by g.create_time DESC
+	</select>
+	<select id="selectBySelective" resultMap="BaseResultMap" parameterType="Goods">
+		SELECT * FROM es_goods
+		<where>
+			1 = 1
+			<if test="name != null">and goods_name LIKE CONCAT('%','${name}','%' )</if>
+			<if test="category != null">and cat_id = #{category.id}</if>
+		</where>
+		order by create_time DESC
+	</select>
+	<insert id="insert" parameterType="Goods">
+		insert into es_goods(goods_id, goods_name, goods_desc, goods_price, shop_id, cat_id,
+			goods_number, goods_img, is_on_sale, brand_id)
+		values (#{id}, #{name}, #{description}, #{price}, #{shop.id}, #{category.id},
+			#{number}, #{image}, #{isOnSale}, #{brand.id})
+	</insert>
+	<insert id="insertSelective" parameterType="Goods">
+		insert into es_goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				goods_id,
+			</if>
+			<if test="name != null">
+				goods_name,
+			</if>
+			<if test="description != null">
+				goods_desc,
+			</if>
+			<if test="price != null">
+				goods_price,
+			</if>
+			<if test="shop != null and shop.id != null">
+				shop_id,
+			</if>
+			<if test="category != null and category.id != null">
+				cat_id,
+			</if>
+			<if test="clickCount != null">
+				click_count,
+			</if>
+			<if test="number != null">
+				goods_number,
+			</if>
+			<if test="image != null">
+				goods_img,
+			</if>
+			<if test="isOnSale != null">
+				is_on_sale,
+			</if>
+			<if test="isFreePostage != null">
+				is_free_postage,
+			</if>
+			<if test="brand != null and brand.id != null">
+				brand_id,
+			</if>
+			<if test="modifyTime != null">
+				modify_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="description != null">
+				#{description},
+			</if>
+			<if test="price != null">
+				#{price},
+			</if>
+			<if test="shop != null and shop.id != null">
+				#{shop.id},
+			</if>
+			<if test="category != null and category.id != null">
+				#{category.id},
+			</if>
+			<if test="clickCount != null">
+				#{clickCount},
+			</if>
+			<if test="number != null">
+				#{number},
+			</if>
+			<if test="image != null">
+				#{image},
+			</if>
+			<if test="isOnSale != null">
+				#{isOnSale},
+			</if>
+			<if test="isFreePostage != null">
+				#{isFreePostage},
+			</if>
+			<if test="brand != null and brand.id != null">
+				#{brand.id},
+			</if>
+			<if test="modifyTime != null">
+				#{modifyTime},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateSelective" parameterType="Goods">
+		update es_goods
+		<set>
+			<if test="name != null">
+				goods_name = #{name},
+			</if>
+			<if test="description != null">
+				goods_desc = #{description},
+			</if>
+			<if test="price != null">
+				goods_price = #{price},
+			</if>
+			<if test="shop != null and shop.id != null">
+				shop_id = #{shop.id},
+			</if>
+			<if test="category != null and category.id != null">
+				cat_id = #{category.id},
+			</if>
+			<if test="clickCount != null">
+				click_count = #{clickCount},
+			</if>
+			<if test="number != null">
+				goods_number = #{clickCount},
+			</if>
+			<if test="image != null">
+				goods_img = #{image},
+			</if>
+			<if test="isOnSale != null">
+				is_on_sale = #{isOnSale},
+			</if>
+			<if test="isFreePostage != null">
+				is_free_postage = #{isFreePostage},
+			</if>
+			<if test="brand != null and brand.id != null">
+				brand_id = #{brand.id},
+			</if>
+			<if test="modifyTime != null">
+				modify_time = #{modifyTime},
+			</if>
+		</set>
+		where goods_id = #{id}
+	</update>
+	<update id="updateById" parameterType="Goods">
+		update es_goods
+		set
+		goods_name = #{name}, goods_desc = #{description}, goods_price = #{price}, shop_id = #{shop.id},
+			cat_id = #{category.id}, click_count = #{clickCount},
+		goods_number = #{number},
+		goods_img = #{image},
+		is_on_sale = #{isOnSale},
+		is_free_postage =
+		#{isFreePostage},
+		brand_id =
+		#{brand.id},
+		modify_time = #{modifyTime}
+		where goods_id = #{id}
+	</update>
+	<update id="increaseCollecionCountById" parameterType="String">
+		update es_goods
+		set collection_count = collection_count + 1
+		where goods_id = #{id}
+	</update>
+	<update id="decreaseCollecionCountById" parameterType="String">
+		update es_goods
+		set collection_count = collection_count - 1
+		where goods_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_goods
+		where goods_id = #{id}
+	</delete>
+</mapper>

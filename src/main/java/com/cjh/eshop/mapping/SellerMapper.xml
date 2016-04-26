@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.sellerMapper">
+	<resultMap id="BaseResultMap" type="Seller">
+		<id column="seller_id" property="id" />
+		<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+		<result column="account" property="account" />
+		<result column="password" property="password" />
+		<result column="seller_name" property="name" />
+		<association property="shop" javaType="Shop">
+			<id column="shop_id" property="id" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		seller_id, shop_id, add_time, account, password, seller_name
+	</sql>
+	<select id="getAll" resultMap="BaseResultMap">
+		select * from es_seller
+	</select>
+</mapper>

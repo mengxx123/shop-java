@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.goodsCategoryMapper">
+	<resultMap id="BaseResultMap" type="GoodsCategory">
+		<id column="cat_id" property="id" />
+		<result column="cat_name" property="name" />
+		<result column="cat_desc" property="description" />
+		<result column="sort_order" property="sortOrder" />
+		<result column="modify_time" property="modifyTime" />
+		<association column="parent_id" property="parent" select="selectById" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		cat_id, cat_name, cat_desc, parent_id, sort_order, modify_time
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select *
+		from es_goods_category c1
+		left join es_goods_category c2
+		on c1.parent_id = c2.cat_id
+		where c1.cat_id = #{id}
+	</select>
+	<select id="getAll" resultMap="BaseResultMap">
+		select * from es_goods_category c1
+		left join es_goods_category c2 
+		on c1.parent_id = c2.cat_id
+		order by c1.modify_time DESC
+	</select>
+	<select id="selectByParentId" resultMap="BaseResultMap" parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from es_goods_category
+		where parent_id = #{id}
+	</select>
+	<select id="selectTop" resultMap="BaseResultMap" parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from es_goods_category
+		where parent_id is null
+	</select>
+	<insert id="insert" parameterType="GoodsCategory">
+		insert into es_goods_category (cat_id, cat_name, cat_desc, parent_id, modify_time)
+		values (#{id}, #{name}, #{description}, #{parent.id}, #{modifyTime})
+	</insert>
+	<update id="updateById" parameterType="GoodsCategory">
+		update es_goods_category
+		set cat_name = #{name},
+		cat_desc = #{description},
+		parent_id = #{parent.id},
+		modify_time = #{modifyTime}
+		where cat_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_goods_category
+		where cat_id = #{id}
+	</delete>
+</mapper>

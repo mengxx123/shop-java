@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.articleMapper">
+	<resultMap id="BaseResultMap" type="Article">
+		<id column="article_id" property="id" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="add_time" property="addTime" />
+		<association property="category" javaType="ArticleCategory">
+			<id property="id" column="cat_id" />
+			<id property="name" column="cat_name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		article_id, title, content, add_time, cat_id
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_article
+		where article_id = #{id}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select *
+		from es_article a, es_article_category c
+		where a.cat_id = c.cat_id
+		order by add_time DESC
+	</select>
+	<select id="selectByCategoryId" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_article
+		where cat_id = #{id}
+		order by add_time DESC
+	</select>
+	<insert id="insert" parameterType="Article">
+		insert into es_article(article_id, title, content, cat_id)
+		values (#{id}, #{title}, #{content}, #{category.id})
+	</insert>
+	<update id="updateById" parameterType="Article">
+		update es_article
+		set title = #{title}, content = #{content}, add_time = #{addTime}, cat_id = #{category.id}
+		where article_id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_article
+		where article_id = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,30 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Example TLD</short-name>
+	<tag>
+		<name>page</name>
+		<tag-class>com.cjh.eshop.tag.PageTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+	       <name>page</name>
+	       <required>true</required>
+	       <rtexprvalue>true</rtexprvalue>
+	    </attribute>
+	    <attribute>
+	       <name>url</name>
+	       <required>true</required>
+	       <rtexprvalue>true</rtexprvalue>
+	    </attribute>
+	</tag>
+	<tag>
+        <name>simpleTime</name>
+        <tag-class>com.cjh.eshop.tag.TimeTag</tag-class>
+        <body-content>scriptless</body-content>   
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

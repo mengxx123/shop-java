@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.settingMapper">
+	<resultMap id="BaseResultMap" type="Setting">
+		<id column="setting_id" property="id" />
+		<result column="setting_key" property="key" />
+		<result column="setting_value" property="value" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		setting_id, setting_key, setting_value
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="Integer">
+		select <include refid="Base_Column_List" />
+		from es_setting
+		where setting_id = #{id}
+	</select>
+	<select id="selectByKey" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from es_setting
+		where setting_key = #{key}
+	</select>
+	<insert id="insert" parameterType="Setting">
+		insert into es_setting(setting_key, setting_value)
+		values (#{key}, #{value})
+	</insert>
+	<update id="updateByKey" parameterType="Setting">
+		update es_setting
+		set setting_value = #{value}
+		where setting_key = #{key}
+	</update>
+	<delete id="deleteById" parameterType="String">
+		delete from es_setting
+		where setting_id = #{id}
+	</delete>
+</mapper>

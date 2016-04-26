@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjh.eshop.mapping.managerMapper">
+	<resultMap id="BaseResultMap" type="Manager">
+		<id column="manager_id" property="id" />
+		<result column="manager_name" property="name" />
+		<result column="password" property="password" />
+		<result column="note" property="note" />
+		<result column="account" property="account" />
+		<result column="add_time" property="addTime" />
+		<result column="latest_login_time" property="latestLoginTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		manager_id, manager_name, password, note, account, add_time, latest_login_time
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="String">
+		select <include refid="Base_Column_List" />
+		from eb_manager
+		where manager_id = #{id}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_manager
+		order by add_time DESC
+	</select>
+	<select id="selectByAccount" parameterType="String" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from eb_manager
+		where account = #{account}
+	</select>
+	<insert id="insert" parameterType="Manager">
+		insert into eb_manager(manager_id, manager_name, password, note, account, add_time)
+		values(#{id}, #{name}, #{password}, #{note}, #{account}, #{addTime})
+	</insert>
+	<update id="updateById" parameterType="Manager">
+		update eb_manager
+		set manager_name = #{name}, password = #{password}, note = #{note}, account = #{account},
+			add_time = #{addTime}
+		where manager_id = #{id}
+	</update>
+	<update id="updateByIdSelective" parameterType="Manager" flushCache="true">  
+        update eb_manager  
+        <set>  
+            <if test="latestLoginTime != null">  
+                latest_login_time = #{latestLoginTime},  
+            </if>  
+        </set>  
+        where manager_id = #{id}
+    </update>  
+	<delete id="deleteById" parameterType="String">
+		delete from eb_manager
+		where manager_id = #{id}
+	</delete>
+	
+</mapper>
