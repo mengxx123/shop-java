@@ -76,51 +76,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </ul>
         </li>
         <li>
-            <a href="#"><i class="menu-icon fa fa-users"></i><span class="menu-lable">群组管理</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="admin/groups" target="frame"><span class="menu-lable">群组列表</span></a></li>
-                <li><a href="admin/groups_edit" target="frame"><span class="menu-lable">添加群组</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-columns"></i><span class="menu-lable">问题管理</span></a>
-            <ul aria-expanded="true">
-                <li><a href="admin/questions" target="frame"><span class="menu-lable">问题列表</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">回答管理</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="admin/answers" target="frame"><i class="menu-icon fa fa-home"></i><span class="menu-lable">回答列表</span></a></li>
-            </ul>
-        </li>
-        <li>
             <a href="#" aria-expanded="true"><i class="menu-icon fa fa-envelope"></i><span class="menu-lable">管理员管理</span><span class="label label-info pull-right">10</span></a>
             <ul>
                 <li><a href="admin/managers" target="frame"><span class="menu-lable">管理员列表</span></a></li>
                 <li><a href="admin/manager_edit" target="frame"><span class="menu-lable">添加管理员</span></a></li>
             </ul>
         </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">论坛系统管理</span><i class="fa arrow"></i></a>
-            <ul>
-                <li>
-		            <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">板块管理</span><i class="fa arrow"></i></a>
-		            <ul>
-		                <li><a href="admin/sections" target="frame"><span class="menu-lable">板块列表</span></a></li>
-		                <li><a href="admin/sections_edit" target="frame"><span class="menu-lable">添加板块</span></a></li>
-		            </ul>
-		        </li>
-                <li>
-		            <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">帖子管理</span><i class="fa arrow"></i></a>
-		            <ul>
-		                <li><a href="admin/topics" target="frame"><span class="menu-lable">帖子列表</span></a></li>
-		            </ul>
-		        </li>
-            </ul>
-        </li>
-        
-        
         <li>
             <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">文章管理</span><i class="fa arrow"></i></a>
             <ul>

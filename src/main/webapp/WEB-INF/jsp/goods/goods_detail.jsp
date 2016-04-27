@@ -146,8 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 </div>
 	
-<jsp:include flush="true" page="../include_footer.jsp"/>  
-<script src="js/jquery.imagezoom.min.js"></script>
+<jsp:include flush="true" page="../eshop/include_footer.jsp"/>  
 <script src="asset/eshop/js/jquery.slides.js"></script>
 <script>
 var goodsId = '${goods.id}';

@@ -98,27 +98,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- /主体内容 -->
  
 <jsp:include flush="true" page="../eshop/include_footer.jsp"/> 
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/slider.js"></script>
-<script>
-$(function() {
-	var bannerSlider = new Slider($('#banner_tabs'), {
-		time: 5000,
-		delay: 400,
-		event: 'hover',
-		auto: true,
-		mode: 'fade',
-		controller: $('#bannerCtrl'),
-		activeControllerCls: 'active'
-	});
-	$('#banner_tabs .flex-prev').click(function() {
-		bannerSlider.prev()
-	});
-	$('#banner_tabs .flex-next').click(function() {
-		bannerSlider.next()
-	});
-})
-</script>
 <script>
 $("#hot-keyword").click(function() {
 	var keyword = $(this).text();

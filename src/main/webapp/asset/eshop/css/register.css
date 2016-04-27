@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 注册框 */
+.register-box {
+	width: 970px;
+	margin: 20px auto;
+	border: #e1e1e1 solid 5px;
+	background: #fff;
+	border-radius: 5px;
+}
+.register-item {
+	margin: 10px 50px;
+}
+.form-item {
+	display: inline-block;
+	width: 350px;
+	height: 25px;
+	padding: 10px 10px;
+	border: #e1e1e1 solid 1px;
+}
+.form-item2 {
+	display: inline-block;
+	width: 185px;
+	height: 25px;
+	padding: 10px 10px;
+	border: #e1e1e1 solid 1px;
+}
+.form-item label {
+	display: inline-block;
+	width: 70px;
+	height: 25px;
+}
+input[type="text"],
+input[type="password"] {
+	width: 200px;
+	height: 25px;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	border: none;
+	box-sizing: border-box;
+}
+.register-ckeckCode {
+	display: inline-block;
+	width: 120px !important;
+}
+.get-checkCode {
+	width: 160px;
+	height: 45px;
+	margin-top: 20px;
+	padding-left: 15px;
+	color: #fff;
+	font-size: 16px;
+	background: #e60012;
+	border: #f90 solid 1px;
+	outline: none;
+	box-sizing: border-box;
+}
+.get-checkCode:hover {
+	background: #F00;
+	cursor: pointer;
+}
+.get-checkCode-unable {
+	width: 160px;
+	height: 45px;
+	margin-top: 20px;
+	padding-left: 15px;
+	color: #ccc;
+	font-size: 16px;
+	background: #eee;
+	border: #ccc solid 1px;
+	outline: none;
+	box-sizing: border-box;
+}
+.get-checkCode-unable:hover {
+	cursor: pointer;
+}
+.register-submit {
+	width: 200px;
+	height: 45px;
+	margin-top: 20px;
+	padding-left: 15px;
+	color: #fff;
+	font-size: 18px;
+	background: #e60012;
+	border: #f90 solid 1px;
+	outline: none;
+	box-sizing: border-box;
+}
+.register-submit:hover {
+	background: #F00;
+	cursor: pointer;
+}
+.tip {
+	display: inline-block;
+	width: 180px;
+	padding: 15px 10px 10px 20px;
+	border-radius: 0 3px 3px 0;
+	color: #f00;
+	line-height: 20px;
+}
+.agreement {
+	color: #F00;
+}

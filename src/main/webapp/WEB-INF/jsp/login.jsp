@@ -13,31 +13,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8" /> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-
-<jsp:include page="include_head.jsp"></jsp:include>
-
-<link rel="stylesheet" href="css/login.css" />
+<jsp:include page="eshop/include_head.jsp"></jsp:include>
+<link rel="stylesheet" href="asset/eshop/css/login.css" />
 </head>
 <body>
-<jsp:include flush="true" page="include_header.jsp"/>
+<jsp:include flush="true" page="eshop/include_header.jsp"/>
 <div class="container">
-	<div class="ad"><a href=""><img src="images/login-ad.jpg" alt="广告" /></a></div>
-    <div class="login">
-    	<div id="error-tip" class="tip">请输入账号</div>
-    	<form action="login" method="post">
-    		<div><input id="login-account" name="password" class="login-account" type="text" placeholder="手机号/用户名/邮箱" /></div>
-        	<div><input id="login-password" name="password" class="login-password" type="password" placeholder="输入密码" /></div>
-			<input id="login-submit" class="login-submit" type="button" value="登陆" />
-		</form>
-        <div>
-        	<a class="forget-password" href="find_password">忘记密码</a>
-        	<a class="register" href="register">免费注册</a>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="ad"><a href=""><img src="images/login-ad.jpg" alt="广告" /></a></div>
+		</div>
+		<div class="col-sm-6">
+			<div class="login">
+		    	<div id="error-tip" class="tip">请输入账号</div>
+		    	<form action="login" method="post">
+		    		<div><input id="login-account" name="password" class="login-account" type="text" placeholder="手机号/用户名/邮箱" /></div>
+		        	<div><input id="login-password" name="password" class="login-password" type="password" placeholder="输入密码" /></div>
+					<input id="login-submit" class="btn btn-success btn-block btn-lg" type="button" value="登陆" />
+				</form>
+		        <div>
+		        	<a class="forget-password" href="find_password">忘记密码</a>
+		        	<a class="register" href="register">免费注册</a>
+		        </div>
+		    </div>
+		</div>
+	</div>
+		
+	
+    
 </div>
 <jsp:include flush="true" page="include_footer.jsp"/>
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery.md5.js"></script>
+<script src="asset/lib/md5/jquery.md5.js"></script>
 <script>
 /**
  * 获取url中的参数，获取不到返回null 

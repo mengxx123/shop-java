@@ -112,8 +112,6 @@ function deleteItem(id) {
 	var text = '你确定删除该商品吗？';
 	var url = 'goods_delete2?id=' + id;
 	var onSuccess = function() {
-		//alert('ok');
-		//location.href = "goodses/released";
 		location.reload(true); 
 	};
 	ajax(text, url, onSuccess);

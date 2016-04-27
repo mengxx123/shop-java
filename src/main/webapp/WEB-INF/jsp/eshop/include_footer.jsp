@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="asset/lib/jquery/jquery-1.10.2.min.js"></script>
 <script src="asset/lib/eui/eui.min.js"></script>
 <script src="asset/lib/eui/eui.dialog.js"></script>
+<script src="asset/eshop/js/common.js"></script>
 <script>
 $(document).ready(function(e) {
     $("#login").click(function(e) {

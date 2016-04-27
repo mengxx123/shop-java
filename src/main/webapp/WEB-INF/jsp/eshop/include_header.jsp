@@ -14,11 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="ershou" class="navbar-brand">${websiteName}</a>
+            <a class="navbar-brand" href="./">${websiteName}</a>
         </div>
         <nav id="navbar-collapse" class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li class="nav-item active"> <a class="nav-link" href="ershou">首页</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="./">首页</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#">求购</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

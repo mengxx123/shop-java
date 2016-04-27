@@ -13,16 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8" /> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link rel="stylesheet" href="css/common.css" />
-<link rel="stylesheet" href="css/register.css" />
+<jsp:include page="eshop/include_head.jsp"></jsp:include>
+<link rel="stylesheet" href="asset/eshop/css/register.css" />
 </head>
 <body>
-<div class="header2">
-	<div><a href="./"><img class="login-logo" src="images/logo.png" alt="logo" /></a></div>
-</div>
+<jsp:include flush="true" page="eshop/include_header.jsp"/>
 <div class="content clearfix">
 	<div class="register-box">
-        <form action="register" method="post">
+        <form class="form-horizontal" action="register" method="post">
         	<div class="register-item">
                 <span class="form-item">
                     <label>用户名：</label>
