@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>商家列表</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 <style>
 .column-id {
@@ -37,12 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/sellers">商家列表</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/sellers">商家列表</a></li>
         </ul>
         
-    	<form action="admin/brand" method="get" accept-charset="utf-8">
-        	<img class="search-icon" src="images/admin/icon_search.gif" alt="搜索图标" />
+    	<form action="/admin/brand" method="get" accept-charset="utf-8">
+        	<img class="search-icon" src="/images/admin/icon_search.gif" alt="搜索图标" />
 	        <label class="admin-label">品牌名称</label>
 	        <input id="search-input" name="keyword" class="admin-input margin-left-10px" type="text" value="${keyword}" />
 	        <input class="admin-btn margin-left-10px" onclick="return searchValid()" type="submit" value="搜索" />
@@ -106,7 +105,7 @@ function operateOk() {
 function deleteItem(id) {
 	if (confirm("你确定删除该商家吗？")) {
 		$.ajax({ 
-			url: "user_delete?id=" + id, 
+			url: "/user_delete?id=" + id, 
 			dataType: 'json', 
 			success: function(obj) {
 				if (obj.code === 0) {
@@ -128,7 +127,7 @@ function deleteItem(id) {
 /* 删除反馈，不带提示，同步执行 */
 function deleteItem2(id) {
 	$.ajax({ 
-		url: "user_delete?id=" + id, 
+		url: "/user_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		async: false,

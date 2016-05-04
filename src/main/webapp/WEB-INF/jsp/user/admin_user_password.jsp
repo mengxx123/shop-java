@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>编辑用户密码</title>
-<base href="<%=basePath%>">
 
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 
@@ -22,14 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/users">用户列表</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/users">用户列表</a></li>
         </ul>
         <c:if test="${result != null}">
 	    	<div class="eui-alert eui-alert-info">${result}</div>
 	    </c:if>
 	
-    	<form class="form-horizontal" action="admin/users/password" method="post" enctype="multipart/form-data">
+    	<form class="form-horizontal" action="/admin/users/password" method="post" enctype="multipart/form-data">
     		<input type="hidden" name="id" value="${user.id}">
     		<div class="form-group">
     			<label class="control-label col-sm-3">密码 *</label>

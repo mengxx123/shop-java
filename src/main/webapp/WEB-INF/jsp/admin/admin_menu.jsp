@@ -10,25 +10,25 @@
             <li>
             	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">文章管理</span><i class="fa arrow"></i></a>
                 <ul>
-                    <li><a href="admin/article"><span class="menu-lable">文章列表</span></a></li>
-                    <li><a href="admin/article_edit"><span class="menu-lable">添加文章</span></a></li>
-                    <li><a href="admin/article_category"><span class="menu-lable">文章类别</span></a></li>
-                    <li><a href="admin/article_category_edit"><span class="menu-lable">添加文章类别</span></a></li>
+                    <li><a action="/admin/article"><span class="menu-lable">文章列表</span></a></li>
+                    <li><a action="/admin/article_edit"><span class="menu-lable">添加文章</span></a></li>
+                    <li><a action="/admin/article_category"><span class="menu-lable">文章类别</span></a></li>
+                    <li><a action="/admin/article_category_edit"><span class="menu-lable">添加文章类别</span></a></li>
                 </ul>
             </li>
             <li>
             	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">帖子管理</span><i class="fa arrow"></i></a>
                 <ul>
-                    <li><a href="admin/article"><span class="menu-lable">帖子列表</span></a></li>
-                    <li><a href="admin/article_category"><span class="menu-lable">文章类别</span></a></li>
-                    <li><a href="admin/article_category_edit"><span class="menu-lable">添加文章类别</span></a></li>
+                    <li><a action="/admin/article"><span class="menu-lable">帖子列表</span></a></li>
+                    <li><a action="/admin/article_category"><span class="menu-lable">文章类别</span></a></li>
+                    <li><a action="/admin/article_category_edit"><span class="menu-lable">添加文章类别</span></a></li>
                 </ul>
             </li>
          	<li>
             	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">管理员管理</span><i class="fa arrow"></i></a>
                 <ul>
-                    <li><a href="admin/manager"><span class="menu-lable">管理员列表</span></a></li>
-                    <li><a href="admin/manager_edit"><span class="menu-lable">添加管理员</span></a></li>
+                    <li><a action="/admin/manager"><span class="menu-lable">管理员列表</span></a></li>
+                    <li><a action="/admin/manager_edit"><span class="menu-lable">添加管理员</span></a></li>
                 </ul>
             </li>
             <li>
@@ -81,7 +81,7 @@
 <div id="content">
     <nav class="navbar navbar-default" role="navigation">
     	<div class="navbar-header">
-          <a class="navbar-brand" href="admin">管理平台</a>
+          <a class="navbar-brand" href="/admin">管理平台</a>
        </div>
        <div>
           <ul class="nav navbar-nav">

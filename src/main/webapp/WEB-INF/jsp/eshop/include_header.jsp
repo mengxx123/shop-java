@@ -14,11 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./">${websiteName}</a>
+            <a class="navbar-brand" href="/">${websiteName}</a>
         </div>
         <nav id="navbar-collapse" class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li class="nav-item active"> <a class="nav-link" href="./">首页</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="/">首页</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#">求购</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -33,9 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <b class="caret"></b>
 		                </a>
 		                <ul class="dropdown-menu">
-		                	<li><a href="users/${userId}" target="_blank">个人中心</a></li>
-		                	<li><a href="goods_collection">商品收藏</a></li>
-		                	<li><a href="shop_collection">店铺收藏</a></li>
+		                	<li><a href="/users/${userId}" target="_blank">个人中心</a></li>
+		                	<li><a href="/goods_collection">商品收藏</a></li>
+		                	<li><a href="/shop_collection">店铺收藏</a></li>
 		                	<li class="divider"></li>
 		                	<li><a id="loginout" href="javascript:;">退出</a></li>
 		                </ul>

@@ -51,13 +51,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </ul>
                 </div>
                 <div class="user-detail-btn-group">
-                    <a class="btn btn-info" href="goods/release">发布商品</a>
+                    <a class="btn btn-info" href="/goods/release">发布商品</a>
                     <a class="btn btn-success">发布求购</a>
                 </div>
             </div>
 
             <ul id="myTab" class="nav nav-tabs">
-            	<li class="nav-item"><a class="nav-link" href="goodses/released">我的商品</a></li>
+            	<li class="nav-item"><a class="nav-link" href="/goodses/released">我的商品</a></li>
                 <li class="nav-item active"><a class="nav-link">商品收藏</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                		<li class="collection-item">
                                 <img class="collection-item-image" src="${collection.goods.image}">
                                 <div class="collection-item-content">
-                                    <a class="collection-item-name" href="goodses/${collection.goods.id}" target="_blank">${collection.goods.name}</a>
+                                    <a class="collection-item-name" href="/goodses/${collection.goods.id}" target="_blank">${collection.goods.name}</a>
                                     <p class="collection-item-desc">￥${collection.goods.price}</p>
                                     <a class="collection-cancel btn btn-primary" href="cancel_goods_collection?id=${collection.id }">取消收藏</a>
                                 </div>

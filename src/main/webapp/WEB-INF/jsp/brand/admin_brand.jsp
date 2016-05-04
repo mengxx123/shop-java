@@ -13,8 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>品牌列表</title>
-<base href="<%=basePath%>">
-
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 
 <style>
@@ -39,11 +37,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/brands">品牌列表</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/brands">品牌列表</a></li>
         </ul>
 		<div>
-			<form class="form-inline pull-left" action="admin/brands" method="get" accept-charset="utf-8">
+			<form class="form-inline pull-left" action="/admin/brands" method="get" accept-charset="utf-8">
 		        <div class="input-group input-group-sm">
 			        <input id="search-input" name="keyword" class="form-control" type="text" value="${keyword}"  placeholder="品牌名称">
 		        	<div class="input-group-btn">
@@ -52,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </div>
 	        </form>
 	        <div class="pull-right">
-	        	<a class="btn btn-primary" href="admin/brand_edit">添加商品品牌</a>
+	        	<a class="btn btn-primary" action="/admin/brand_edit">添加商品品牌</a>
 	        </div>
 		</div>
 	    	
@@ -82,11 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                    	<td>没有上传图标</td>          	
 			                    </c:when>
 			                    <c:otherwise>
-			                    	<td><img class="brand-icon" src="images/brand/${brand.icon}" alt="${brand.name}"/></td>
+			                    	<td><img class="brand-icon" src="/images/brand/${brand.icon}" alt="${brand.name}"/></td>
 			                    </c:otherwise>
 		                    </c:choose>  
 		                    <td>
-	                    		<a class="btn btn-success btn-xs" href="admin/brand/${brand.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" action="/admin/brand/${brand.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${brand.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>
@@ -129,7 +127,7 @@ function deleteItem(id) {
 /* 删除反馈，不带提示，同步执行 */
 function deleteItem2(id) {
 	$.ajax({ 
-		url: "brand_delete?id=" + id, 
+		url: "/brand_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		async: false,

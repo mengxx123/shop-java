@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>文章类别编辑</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 </head>
 
@@ -21,16 +20,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/article_category_edit">添加文章类别</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/article_category_edit">添加文章类别</a></li>
         </ul>
-        <a class="admin-btn float-right" href="admin/article_categorys">文章类别列表</a>
+        <a class="admin-btn float-right" action="/admin/article_categorys">文章类别列表</a>
         
         <c:if test="${result != null}">
     		<div class="eui-alert eui-alert-info">${result}</div>
     	</c:if>
 
-    	<form class="form-horizontal" action="article_categorys" method="post">
+    	<form class="form-horizontal" action="/article_categorys" method="post">
     		<input type="hidden" name="id" value="${category.id}">
     		<div class="form-group">
     			<label class="control-label col-sm-3">类别名称 *</label>

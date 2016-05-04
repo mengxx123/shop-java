@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>编辑品牌</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 <style>
 .brand-icon {
@@ -27,10 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/brand_edit">添加品牌</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/brand_edit">添加品牌</a></li>
         </ul>
-        <a class="admin-btn float-right" href="admin/brands">商品品牌列表</a>
+        <a class="admin-btn float-right" action="/admin/brands">商品品牌列表</a>
         
         <c:if test="${result != null}">
         	<div class="eui-alert eui-alert-info">${result}</div>
@@ -48,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<label class="control-label col-sm-3">品牌图标</label>
     			<div class="col-sm-4">
     				<c:if test="${brand.icon != null && brand.icon != ''}">
-                    	<img class="brand-icon" src="images/brand/${brand.icon}" alt="${brand.name}"/>         	
+                    	<img class="brand-icon" src="/images/brand/${brand.icon}" alt="${brand.name}"/>         	
                     </c:if> 
 	    			<input class="form-control" type="file" name="myfile">
     			</div>

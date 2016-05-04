@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>页面找不到</title>
-<base href="<%=basePath%>">
 <link rel="stylesheet" href="css/admin_common.css" />
 <style>
 .error-404 {
@@ -52,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <p class="error-404">404</p>
             <div class="content-right">
                 <p class="sorry-text">很抱歉，您访问的页面找不到了！</p>
-                <div><a class="back" href="admin/main">返回起始页</a></div>
+                <div><a class="back" action="/admin/main">返回起始页</a></div>
             </div>
         </div>
     </div> 

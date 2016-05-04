@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>商品类别列表</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 <style>
 .column-id {
@@ -37,13 +36,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/category">商品类别列表</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/category">商品类别列表</a></li>
         </ul>
-        <a class="admin-btn float-right" href="admin/category_edit">添加商品类别</a>
+        <a class="admin-btn float-right" action="/admin/category_edit">添加商品类别</a>
 
-    	<form action="admin/brand" method="get" accept-charset="utf-8">
-        	<img class="search-icon" src="images/admin/icon_search.gif" alt="搜索图标" />
+    	<form action="/admin/brand" method="get" accept-charset="utf-8">
+        	<img class="search-icon" src="/images/admin/icon_search.gif" alt="搜索图标" />
 	        <label class="admin-label">品牌名称</label>
 	        <input id="search-input" name="keyword" class="admin-input margin-left-10px" type="text" value="${keyword}" />
 	        <input class="admin-btn margin-left-10px" onclick="return searchValid()" type="submit" value="搜索" />
@@ -82,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                  
 		                    <td>${category.description}</td>
 		                    <td>
-	                    		<a class="btn btn-success btn-xs" href="admin/category/${category.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" action="/admin/category/${category.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${category.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>
@@ -126,7 +125,7 @@ function deleteItem(id) {
 /* 删除反馈，不带提示，同步执行 */
 function deleteItem2(id) {
 	$.ajax({ 
-		url: "category_delete?id=" + id, 
+		url: "/category_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		async: false,

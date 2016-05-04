@@ -14,8 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>管理员列表</title>
-<base href="<%=basePath%>">
-
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 
 <style>
@@ -38,19 +36,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/managers">管理员列表</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/managers">管理员列表</a></li>
         </ul>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<form class="form-inline pull-left" action="admin/brand" method="get">
+				<form class="form-inline pull-left" action="/admin/brand" method="get">
 			        <input id="search-input" class="form-control" name="keyword" type="text" value="${keyword}" placeholder="管理员姓名"/>
 			        <input class="btn btn-primary" onclick="return searchValid()" type="submit" value="搜索" />
 		        </form>
 		        <div class="pull-right">
-					<a class="btn btn-info" href="admin/manager_edit">添加管理员</a>
-					<a class="btn btn-info" href="admin/manager_import">导入管理员</a>
-					<a class="btn btn-info" href="admin/manager_export">导出管理员</a>
+					<a class="btn btn-info" action="/admin/manager_edit">添加管理员</a>
+					<a class="btn btn-info" action="/admin/manager_import">导入管理员</a>
+					<a class="btn btn-info" action="/admin/manager_export">导出管理员</a>
 				</div>
 			</div>
 	    </div> 
@@ -80,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td>${manager.name}</td>
 		                    <td>${manager.note}</td>
 		                    <td>
-	                    		<a class="btn btn-success btn-xs" href="admin/manager/${manager.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" action="/admin/manager/${manager.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem(${manager.id})" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>
@@ -118,7 +116,7 @@ function deleteItem(id) {
 /* 删除反馈，不带提示，同步执行 */
 function deleteItem2(id) {
 	$.ajax({ 
-		url: "manager_delete?id=" + id, 
+		url: "/manager_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		async: false,

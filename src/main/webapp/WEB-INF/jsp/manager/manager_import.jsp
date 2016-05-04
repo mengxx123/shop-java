@@ -13,15 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>导入管理员</title>
-<base href="<%=basePath%>">
 <link rel="stylesheet" href="css/admin_common.css" />
 </head>
 
 <body>
 <div class="admin-content">
 	<div class="admin-section">
-    	<a href="admin" target="_blank">Eshop管理平台</a> - <a href="admin/manager_edit">添加管理员</a>
-        <a class="admin-btn float-right" href="admin/manager">管理员列表</a>
+    	<a href="/admin" target="_blank">Eshop管理平台</a> - <a action="/admin/manager_edit">添加管理员</a>
+        <a class="admin-btn float-right" action="/admin/manager">管理员列表</a>
     </div>
     <c:if test="${result != null}">
     	<div class="admin-section">

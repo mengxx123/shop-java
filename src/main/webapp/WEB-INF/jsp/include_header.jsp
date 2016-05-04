@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <ul class="nav navbar-nav">
                 <c:if test="${isLogin == true}" >
                 	<li class="nav-item"> <a class="nav-link" href="users/${userId}/messages" target="_blank">消息</a> </li>
-                	<li class="nav-item"> <a class="nav-link" href="admin">管理平台</a> </li>
+                	<li class="nav-item"> <a class="nav-link" href="/admin">管理平台</a> </li>
 				</c:if>
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -13,26 +13,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>文章编辑</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="css/admin_article_edit.css">
-<link rel="stylesheet" href="umeditor/themes/default/css/umeditor.css">
+<link rel="stylesheet" href="/css/admin_article_edit.css">
+<link rel="stylesheet" href="/asset/lib/umeditor/themes/default/css/umeditor.css">
 </head>
 
 <body>
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/article_edit">添加文章</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/article_edit">添加文章</a></li>
         </ul>
-        <a class="admin-btn float-right" href="admin/articles">文章列表</a>
+        <a class="admin-btn float-right" action="/admin/articles">文章列表</a>
         
         <c:if test="${result != null}">
 	    	<div class="eui-alert eui-alert-info">${result}</div>
 	    </c:if>
 
-		<form class="form-horizontal" action="admin/articles" method="post">
+		<form class="form-horizontal" action="/admin/articles" method="post">
         	<input type="hidden" name="id" value="${article.id}">
         	<div class="form-group">
     			<label class="control-label col-sm-3">文章标题 *</label>
@@ -67,9 +66,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div> 
 </div>
 <jsp:include flush="true" page="../admin/admin_footer.jsp"/>
-<script src="umeditor/umeditor.config.js"></script>
-<script src="umeditor/umeditor.min.js"></script>
-<script src="umeditor/lang/zh-cn/zh-cn.js"></script>
+<script src="/asset/lib/umeditor/umeditor.config.js"></script>
+<script src="/asset/lib/umeditor/umeditor.min.js"></script>
+<script src="/asset/lib/umeditor/lang/zh-cn/zh-cn.js"></script>
 <script>
 function valid() {
 	var title = $('#title').val();

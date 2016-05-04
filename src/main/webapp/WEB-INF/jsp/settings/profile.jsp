@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<base href="<%=basePath%>">
 <jsp:include flush="true" page="../include_head.jsp"/>
 
 </head>
@@ -47,7 +46,7 @@ $("#modify").click(function() {
 		return;
 	}
 	$.ajax({ 
-		url: "api/v1/login",
+		url: "/api/v1/login",
 		data:{  
 			account : account,  
 			password: password

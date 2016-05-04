@@ -13,19 +13,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>编辑商品</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/css/eshop/goods-edit.css" />
+<link rel="stylesheet" href="/asset/css/eshop/goods-edit.css" />
 </head>
 
 <body>
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/goods_edit">添加商品</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/goods_edit">添加商品</a></li>
         </ul>
-        <a class="admin-btn float-right" href="admin/goodses">商品列表</a>
+        <a class="admin-btn float-right" action="/admin/goodses">商品列表</a>
         
         <c:if test="${result != null}">
 	    	<div class="admin-section">
@@ -125,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 			</li>
                 		</c:forEach>
                     </ul>
-                    <form action="admin/goods_image" method="post" enctype="multipart/form-data">
+                    <form action="/admin/goods_image" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="${goods.id}" />
                 	<ul>
                     	<li>
@@ -144,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
 function deleteImage(id) {
 	$.ajax({ 
-		url: "goods_image_delete?id=" + id, 
+		url: "/goods_image_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		dataType: 'html', 
@@ -168,7 +167,7 @@ function deleteImage(id) {
 /* 删除反馈，带提示 */
 function setImage(goodsId, imageId) {
 	$.ajax({ 
-		url: "set_goods_image", 
+		url: "/set_goods_image", 
 		data: {
 			image_id: imageId,
 			goods_id: goodsId,

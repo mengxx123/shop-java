@@ -15,11 +15,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8" /> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<base href="<%=basePath%>">
 
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 
-<link rel="stylesheet" href="asset/css/question.css">
+<link rel="stylesheet" href="/asset/css/question.css">
 </head>
 <body>
 <jsp:include flush="true" page="../include_header.jsp"/>  
@@ -98,7 +97,7 @@ $(document).on('click', '.mark-read', function(e) {
 	var id = $(this).data('id');
 	
 	$.ajax({
-		url: 'messages/' + id + '/read',
+		url: '/messages/' + id + '/read',
 		dataType: 'json',
 		success:  function(obj) {
 			if (obj.code === 0) {
@@ -120,7 +119,7 @@ $(document).on('click', '.delete-message', function(e) {
 	var id = $(this).data('id');
 	
 	$.ajax({
-		url: 'messages/' + id + '/delete',
+		url: '/messages/' + id + '/delete',
 		dataType: 'json',
 		success:  function(obj) {
 			if (obj.code === 0) {

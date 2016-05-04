@@ -15,9 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="Eshop,购物" />
 <meta name="description" content="Eshop，致力于打造一个优秀的网上购物商城，为你提供一个更加人性化的购物体验" />
 <title>${websiteName} - 网上商城，方便实惠</title>
-<base href="<%=basePath%>">
 <jsp:include page="include_head.jsp"></jsp:include>
-
 
 </head>
 <body>
@@ -31,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="condition-title">分类:</div>
                     <div class="condition-list">
                     	<c:forEach var="category" items="${categories}">
-                    		<a class="condition-item" href="goodses/search?category_id=${category.id}">${category.name}</a> 
+                    		<a class="condition-item" href="/goodses/search?category_id=${category.id}">${category.name}</a> 
 						</c:forEach>
                     </div>
                 </div>
@@ -46,10 +44,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                    		<li class="goods-item col-sm-6 col-md-4 col-lg-4">
 									<c:choose>  
 										<c:when test="${goods.image == null}"> 
-											<a class="goods-img-link" href="goodses/${goods.id}"><img src="images/goods.jpg" alt="商品"></a>    
+											<a class="goods-img-link" href="/goodses/${goods.id}"><img src="/images/goods.jpg" alt="商品"></a>    
 										</c:when>  
 										<c:otherwise>  
-											<a class="goods-img-link" href="goodses/${goods.id}"><img src="${goods.image}" alt="商品"></a>    
+											<a class="goods-img-link" href="/goodses/${goods.id}"><img src="/${goods.image}" alt="商品"></a>    
 										</c:otherwise>     
 									</c:choose> 
 		                            <p class="goods-item-title">${goods.name}</p>
@@ -70,17 +68,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="col-md-12 col-lg-3">
 			<section class="panel panel-es">
                 <div class="text-center right-btn-tools">
-                    <a class="btn btn-success" href="goodses/released">我的二手</a>
+                    <a class="btn btn-success" href="/goodses/released">我的二手</a>
                 </div>
                 <div class="news-box">
                     <p class="news-title-top"><a href="News.html">广二师二手网站上线啦</a></p>
                     <c:forEach var="article" items="${notices}"> 
-                    	<p class="news-title"><a href="articles/${article.id}">${article.title}</a></p>
+                    	<p class="news-title"><a href="/articles/${article.id}">${article.title}</a></p>
 					</c:forEach>
                 </div>
             </section>
             
-            <form class="input-group" action="goodses/search">
+            <form class="input-group" action="/goodses/search">
                 <input id="prependedInput" class="form-control" type="text" name="keyword" placeholder="请输入您要查询的商品">
                 <div class="input-group-btn">
                     <input class="btn btn-success" type="submit" value="搜索">

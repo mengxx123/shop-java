@@ -10,18 +10,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <footer class="es-footer">
     <div class="container">
         <ul class="link">
-            <li><a href="articles/1" target="_blank">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <li><a href="articles/3" target="_blank">团队介绍</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <li><a href="articles/4" target="_blank">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <li><a href="articles/2" target="_blank">服务协议</a></li>
+            <li><a href="/articles/1" target="_blank">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li><a href="/articles/3" target="_blank">团队介绍</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li><a href="/articles/4" target="_blank">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li><a href="/articles/2" target="_blank">服务协议</a></li>
         </ul>
         <p class="copyright clearfix">© 2016 eSchool</p>
     </div>
 </footer>
 <!-- /页脚  -->
-<script src="asset/lib/jquery/jquery-1.10.2.min.js"></script>
-<script src="asset/lib/eui/eui.min.js"></script>
-<script src="asset/lib/eui/eui.dialog.js"></script>
+<script src="/asset/lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="/asset/lib/eui/eui.min.js"></script>
+<script src="/asset/lib/eui/eui.dialog.js"></script>
 <script>
 $(document).ready(function(e) {
 	e.preventDefault();
@@ -33,7 +33,7 @@ $(document).ready(function(e) {
 
 $("#loginout").click(function() {
 	$.ajax({ 
-		url: "api/v1.0/loginout", 
+		url: "/api/v1.0/loginout", 
 		dataType: 'json', 
 		success: function(obj) {
 			if (obj.code === 0) {

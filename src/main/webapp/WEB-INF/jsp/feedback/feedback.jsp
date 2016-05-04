@@ -51,7 +51,7 @@ $("#btn-submit").click(function() {
 	}
 	
 	$.ajax({ 
-		url: "feedbacks",
+		url: "/feedbacks",
 		data:{  
 			content : content
 		},  

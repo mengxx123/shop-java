@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>编辑店铺</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
 </head>
 
@@ -21,10 +20,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="mycontainer">
 	<div class="row">
 		<ul class="breadcrumb">
-            <li><a href="admin" target="_blank">eSchool管理平台</a></li>
-            <li><a href="admin/shop_edit">添加店铺</a></li>
+            <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
+            <li><a action="/admin/shop_edit">添加店铺</a></li>
         </ul>
-        <a class="btn btn-primary" href="admin/shops">店铺列表</a>
+        <a class="btn btn-primary" action="/admin/shops">店铺列表</a>
         
         <c:if test="${result != null}">
         	<div class="eui-alert eui-alert-info">${result}</div>

@@ -35,7 +35,7 @@ $("#send").click(function() {
 		return;
 	}
 	$.ajax({ 
-		url: "api/v1/login",
+		url: "/api/v1/login",
 		data:{  
 			account : account,  
 			password: password
@@ -84,7 +84,7 @@ $("#submit").click(function() {
 		return;
 	}
 	$.ajax({ 
-		url: "api/v1/login",
+		url: "/api/v1/login",
 		data:{  
 			account : account,  
 			password: password

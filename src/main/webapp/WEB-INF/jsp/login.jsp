@@ -14,14 +14,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <jsp:include page="eshop/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/eshop/css/login.css" />
+<link rel="stylesheet" href="/asset/eshop/css/login.css" />
 </head>
 <body>
 <jsp:include flush="true" page="eshop/include_header.jsp"/>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
-			<div class="ad"><a href=""><img src="images/login-ad.jpg" alt="广告" /></a></div>
+			<div class="ad"><a href=""><img src="/images/login-ad.jpg" alt="广告" /></a></div>
 		</div>
 		<div class="col-sm-6">
 			<div class="login">
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 </div>
 <jsp:include flush="true" page="include_footer.jsp"/>
-<script src="asset/lib/md5/jquery.md5.js"></script>
+<script src="/asset/lib/md5/jquery.md5.js"></script>
 <script>
 /**
  * 获取url中的参数，获取不到返回null 
@@ -72,7 +72,7 @@ $("#login-submit").click(function() {
 		return;
 	}
 	$.ajax({ 
-		url: "api/v1.0/login",
+		url: "/api/v1.0/login",
 		data:{  
 			account : account,  
 			password: $.md5(password)

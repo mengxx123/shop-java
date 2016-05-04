@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <title>${goods.name} - ${websiteName}</title>
-<base href="<%=basePath%>">
 <jsp:include page="../eshop/include_head.jsp"></jsp:include>
 </head>
 <body>
@@ -30,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="slide-photo-box goods-img">
                     <div class="bigger-slide-photo">
                     	<c:forEach var="image" items="${goodsImages}">  
-                    		<div class="bigger-photo hide"><img src="${image.url}" width="540" height="540"/></div>
+                    		<div class="bigger-photo hide"><img src="/${image.url}" width="540" height="540"/></div>
 						</c:forEach>
                     </div>
 
@@ -38,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                         <div class="slide-photo">
                         	<c:forEach var="image" items="${goodsImages}"> 
-                        		 <div class="ershou-samll-photo"><img class="small" src="${image.url}" width="60px;"
+                        		 <div class="ershou-samll-photo"><img class="small" src="/${image.url}" width="60px;"
                                                                  height="60px;"/></div> 
 							</c:forEach>
                         </div>
@@ -81,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
                 
             </ul>
-            <p>本商品由<a class="shop-name" href="shops/${goods.shop.id}">${goods.shop.name}</a>配送并提供售后服务</p>
+            <p>本商品由<a class="shop-name" href="/shops/${goods.shop.id}">${goods.shop.name}</a>配送并提供售后服务</p>
             <c:if test="${isLogin && isCollection}">     
 			    <span>已收藏</span> 
 			</c:if>
@@ -96,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <ul class="goods-detail-meta">
                         <li>
                         	<span class="meta-name">卖家</span>
-                        	<a class="meta-value meta-value-link" href="shops/${shop.id}" target="_blank">${seller.nickname}</a>
+                        	<a class="meta-value meta-value-link" href="/shops/${shop.id}" target="_blank">${seller.nickname}</a>
                         </li>
                         <li>
                         	<span class="meta-name">发布时间</span>
@@ -147,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 	
 <jsp:include flush="true" page="../eshop/include_footer.jsp"/>  
-<script src="asset/eshop/js/jquery.slides.js"></script>
+<script src="/asset/eshop/js/jquery.slides.js"></script>
 <script>
 var goodsId = '${goods.id}';
 
@@ -155,7 +154,7 @@ $(document).ready(function() {
 	$('#comment').on('click', function() {
 		var content = $('#content').val();
 		$.ajax({ 
-			url: 'goods_comments',
+			url: '/goods_comments',
 			data: {
 				content: content,
 				goods_id: goodsId
@@ -219,7 +218,7 @@ return fmt;
 
 function test2() {
 	$.ajax({ 
-		url: "good_comment", 
+		url: "/good_comment", 
 		type: 'get', 
 		data: {
 			goodsId: ${goods.id} // 改
@@ -248,7 +247,7 @@ function test2() {
 				var commonTime = unixTimestamp.Format("yyyy-MM-dd hh:mm:ss"); 
 				//alert(typeof unixTimestamp);
 				var node = '<li class="comment"><div class="comment-left">' + 
-                '<img class="comment-head" src="images/head_default.png" alt="头像" />'
+                '<img class="comment-head" src="/images/head_default.png" alt="头像" />'
                 + '<p>'+userName+'</p></div>'
                 + '<div class="comment-right">'
                 + '<div>评分：<span class="star star'+goodsComment.score+'"></span></div>'
@@ -313,7 +312,7 @@ $("#like").on('click', function() {
 	if ($this.hasClass("done")) {
 		// 取消收藏
 		$.ajax({ 
-			url: "api/v1/goods_collection_cancel", 
+			url: "/api/v1/goods_collection_cancel", 
 			type: 'post', 
 			data: {
 				collection_id: collectionId
@@ -341,7 +340,7 @@ $("#like").on('click', function() {
 	} else {
 		// 收藏
 		$.ajax({ 
-			url: "api/v1/goods_collection", 
+			url: "/api/v1/goods_collection", 
 			type: 'post', 
 			data: {
 				goods_id: '${goods.id}' // 改

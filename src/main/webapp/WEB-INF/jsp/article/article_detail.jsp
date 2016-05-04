@@ -15,11 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8" /> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<base href="<%=basePath%>">
-
 <jsp:include flush="true" page="../include_head.jsp"/>
-<link rel="stylesheet" href="asset/eshop/css/common.css">
-<link rel="stylesheet" href="asset/eshop/css/another.css">
+<link rel="stylesheet" href="/asset/eshop/css/common.css">
+<link rel="stylesheet" href="/asset/eshop/css/another.css">
 </head>
 <body>
 <jsp:include flush="true" page="../eshop/include_header.jsp"/>
@@ -41,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 <!-- 内容结束 -->
-<jsp:include flush="true" page="../include_footer.jsp"/>
+<jsp:include flush="true" page="../eshop/include_footer.jsp"/>
 <script>
 (
 	function($) {

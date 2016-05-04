@@ -14,7 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>商家列表</title>
-<base href="<%=basePath%>">
 <link rel="stylesheet" href="css/admin_common.css" />
 <style>
 .column-id {
@@ -37,11 +36,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div class="admin-content">
 	<div class="admin-section">
-		<a href="admin" target="_blank">Eshop管理平台</a> - <a href="admin/brand">品牌列表</a>
+		<a href="/admin" target="_blank">Eshop管理平台</a> - <a action="/admin/brand">品牌列表</a>
     </div>
 	<div class="admin-section">
-    	<form action="admin/brand" method="get" accept-charset="utf-8">
-        	<img class="search-icon" src="images/admin/icon_search.gif" alt="搜索图标" />
+    	<form action="/admin/brand" method="get" accept-charset="utf-8">
+        	<img class="search-icon" src="/images/admin/icon_search.gif" alt="搜索图标" />
 	        <label class="admin-label">品牌名称</label>
 	        <input id="search-input" name="keyword" class="admin-input margin-left-10px" type="text" value="${keyword}" />
 	        <input class="admin-btn margin-left-10px" onclick="return searchValid()" type="submit" value="搜索" />
@@ -74,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td>${seller.account}</td>
 		                    <td><a href="shop/${seller.shop.id}" target="_blank">${seller.shop.name}</a></td>
 		                    <td>
-		                    	<a href="javascript:;" onclick="deleteItem(${seller.id})"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+		                    	<a href="javascript:;" onclick="deleteItem(${seller.id})"><img src="/images/admin/icon_drop.gif" title="删除" /></a>
 		                    </td>
 		                </tr>
 					</c:forEach>		
@@ -111,7 +110,7 @@ function operateOk() {
 function deleteItem(id) {
 	if (confirm("你确定删除该用户吗？")) {
 		$.ajax({ 
-			url: "user_delete?id=" + id, 
+			url: "/user_delete?id=" + id, 
 			type: 'get', 
 			cache: false,
 			dataType: 'html', 
@@ -137,7 +136,7 @@ function deleteItem(id) {
 /* 删除反馈，不带提示，同步执行 */
 function deleteItem2(id) {
 	$.ajax({ 
-		url: "user_delete?id=" + id, 
+		url: "/user_delete?id=" + id, 
 		type: 'get', 
 		cache: false,
 		async: false,

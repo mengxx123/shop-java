@@ -16,10 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8" /> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<base href="<%=basePath%>">
-<jsp:include page="../admin/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/eshop/css/common.css">
-<link rel="stylesheet" href="asset/eshop/css/another.css">
+<jsp:include page="../eshop/include_head.jsp"></jsp:include>
+<link rel="stylesheet" href="/asset/eshop/css/common.css">
+<link rel="stylesheet" href="/asset/eshop/css/another.css">
 </head>
 <body>
 <jsp:include flush="true" page="../eshop/include_header.jsp"/>  
@@ -54,10 +53,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  		<li class="goods-item col-sm-6 col-md-4 col-lg-4">
 					<c:choose>  
 						<c:when test="${goods.image == null}"> 
-							<a class="goods-img-link" href="goodses/${goods.id}"><img src="images/goods.jpg" alt="商品"></a>    
+							<a class="goods-img-link" href="/goodses/${goods.id}"><img src="/images/goods.jpg" alt="商品"></a>    
 						</c:when>  
 						<c:otherwise>  
-							<a class="goods-img-link" href="goodses/${goods.id}"><img src="${goods.image}" alt="商品"></a>    
+							<a class="goods-img-link" href="/goodses/${goods.id}"><img src="/${goods.image}" alt="商品"></a>    
 						</c:otherwise>     
 					</c:choose> 
                           <p class="goods-item-title">${goods.name}</p>
@@ -70,25 +69,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </li>
 			</c:forEach>
                  </div>
-                 <e:page page="${page}" url="shops/${shop.id}?page=" />
+                 <e:page page="${page}" url="/shops/${shop.id}?page=" />
              </div>
             </div>
 		</div>
 		<div class="col-md-12 col-lg-3">
 			<section class="panel panel-default">
                 <div class="text-center right-btn-tools">
-                    <a class="btn btn-success" href="goodses/released">我的二手</a>
+                    <a class="btn btn-success" href="/goodses/released">我的二手</a>
                     <a class="btn btn-success" href="#">发布求购</a>
                 </div>
                 <div class="news-box">
                     <p class="news-title-top"><a href="News.html">广二师二手网站上线啦</a></p>
                     <c:forEach var="article" items="${notices}"> 
-                    	<p class="news-title"><a href="articles/${article.id}">${article.title}</a></p>
+                    	<p class="news-title"><a href="/articles/${article.id}">${article.title}</a></p>
 					</c:forEach>
                 </div>
             </section>
             
-            <form class="input-group" action="goodses/search">
+            <form class="input-group" action="/goodses/search">
                 <input id="prependedInput" class="form-control" type="text" name="keyword" placeholder="请输入您要查询的商品">
                 <div class="input-group-btn">
                     <input class="btn btn-success" type="submit" value="搜索">
@@ -107,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <ul>
                         <li>
                             <div class="qiugou-item clearfix">
-                                <img class="qiugou-img" src="asset/eshop/img/33753.png" width="32" height="32">
+                                <img class="qiugou-img" src="/asset/eshop/img/33753.png" width="32" height="32">
                                 <div class="qiugou-content">
                                     <p class="qiugou-person">小明</p>
                                     <p>谁有2016版的马克思主义到啊，联系我</p>
@@ -117,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                         <li>
                             <div class="qiugou-item clearfix">
-                                <img class="qiugou-img" src="asset/eshop/img/33753.png" width="32" height="32">
+                                <img class="qiugou-img" src="/asset/eshop/img/33753.png" width="32" height="32">
                                 <div class="qiugou-content">
                                     <p class="qiugou-person">小明</p>
                                     <p>谁有2016版的马克思主义到啊，联系我</p>
@@ -127,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                         <li>
                             <div class="qiugou-item clearfix">
-                                <img class="qiugou-img" src="asset/eshop/img/33753.png" width="32" height="32">
+                                <img class="qiugou-img" src="/asset/eshop/img/33753.png" width="32" height="32">
                                 <div class="qiugou-content">
                                     <p class="qiugou-person">小明</p>
                                     <p>谁有2016版的马克思主义到啊，联系我</p>
@@ -147,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
 $("#collection").click(function() {
 	$.ajax({ 
-		url: "api/v1/addShopCollection", 
+		url: "/api/v1/addShopCollection", 
 		type: 'post', 
 		data: {
 			shopId: ${shop.id} // 改

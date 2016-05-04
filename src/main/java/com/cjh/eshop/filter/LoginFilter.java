@@ -68,7 +68,8 @@ public class LoginFilter implements Filter {
 
             if (id != null && password != null) {
                 System.out.println("不为空");
-                String account = userService.getById(id).getName();
+                System.out.println(id);
+                String account = userService.getById(id).getName(); // TODO 这里有时会空指针异常
                 User user = userService.getUserByUserName(account);
                 if (userService.login(account, password)) {
                     System.out.println("OK");

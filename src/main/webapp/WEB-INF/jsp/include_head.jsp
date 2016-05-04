@@ -6,5 +6,5 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<link rel="stylesheet" href="asset/lib/eui/eui.min.css">
-<link rel="stylesheet" href="asset/css/eschool_common.css" />
+<link rel="stylesheet" href="/asset/lib/eui/eui.min.css">
+<link rel="stylesheet" href="/asset/css/eschool_common.css" />

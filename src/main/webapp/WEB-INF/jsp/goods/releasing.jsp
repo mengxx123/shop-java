@@ -17,10 +17,9 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <title>发布商品</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/eshop/css/common.css">
-<link rel="stylesheet" href="asset/eshop/css/another.css">
+<link rel="stylesheet" href="/asset/eshop/css/common.css">
+<link rel="stylesheet" href="/asset/eshop/css/another.css">
 </head>
 
 <body>
@@ -30,7 +29,7 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<a class="btn btn-info" href="goodses/released">我的商品</a>
+				<a class="btn btn-info" href="/goodses/released">我的商品</a>
 			</div>
 		</div>
     	<div class="panel panel-default">
@@ -45,7 +44,7 @@
 	                        	<div class="img-preview">
 	                        		<c:forEach var="image" items="${images}">
 	                        			<div class="img-preview-item">
-		                                    <img src="${image.url}">
+		                                    <img src="/${image.url}">
 		                                    <a class="img-preview-delete" href="#" data-id="${image.id}">删除</a>
 		                                </div>
 	                        		</c:forEach>
@@ -113,8 +112,8 @@
 	</div>
 </div>
 <jsp:include flush="true" page="../include_footer.jsp"/> 
-<script src="asset/lib/validate/jquery.validate.min.js"></script>
-<script src="asset/js/validate.js"></script>
+<script src="/asset/lib/validate/jquery.validate.min.js"></script>
+<script src="/asset/js/validate.js"></script>
 <script>
 <c:choose>
 <c:when test="${goods.id == null}">
@@ -136,7 +135,7 @@ $('#file').on('change', function() {
 	formData.append('goods_id', id);
 	
 	$.ajax({
-		url: "goods_images_add",
+		url: "/goods_images_add",
 		type: 'post',
 		dataType: 'json',
 		data: formData,
@@ -173,7 +172,7 @@ $(document).on('click', '.img-preview-delete', function(e) {
 	$this = $(this);
 	var id = $this.data('id');
 	$.ajax({
-		url: 'goods_image_delete?id=' + id,
+		url: '/goods_image_delete?id=' + id,
 		dataType: 'json',
 		success: function(json) {
              var code = json.code;
@@ -233,7 +232,7 @@ function ajaxSubmit() {
 	formData.append('catId', categoryId);
 	
 	$.ajax({
-		url: "goods/releasing",
+		url: "/goods/releasing",
 		type: 'post',
 		dataType: 'json',
 		data: formData,

@@ -12,11 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <title>个人中心</title>
-<base href="<%=basePath%>">
 
 <jsp:include flush="true" page="../include_head.jsp"/>
 
-<link rel="stylesheet" href="asset/css/question.css">
+<link rel="stylesheet" href="/asset/css/question.css">
 </head>
 <body>
 <jsp:include flush="true" page="../include_header.jsp"/> 
@@ -51,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
 </div>
-<script src="asset/lib/jquery/jquery-1.10.2.min.js"></script>
-<script src="asset/lib/eui/eui.min.js"></script>
+<script src="/asset/lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="/asset/lib/eui/eui.min.js"></script>
 </body>
 </html>

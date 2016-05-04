@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        	<li><a href="javascript:;">Hi，${userName}</a> 
 	                <div class="sub-menu user-info">
 	                	<div>
-	                    	<img src="images/head_default.png" alt="用户头像" />
+	                    	<img src="/images/head_default.png" alt="用户头像" />
 	                        <div><span class="vip"></span></div>
 	                    </div>
 	                    <div><a href="user_center">个人中心</a></div>
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            </li>
 	            <li><i class="app-icon"></i><a href="javascript:;">掌上商城</a>
 	            	<div class="sub-menu app">
-	                	<img class="app-qrcode" src="images/qrcode.png" alt="二维码" />
+	                	<img class="app-qrcode" src="/images/qrcode.png" alt="二维码" />
 	                    <div class="app-right">
 	                    	<p class="title">掌上商城</p>
 	                        <div><a class="apps" href="">手机购物更优惠</a></div>
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
     </div>
     <div class="header-main">
-        <div class="logo"><a href="./"><img src="images/logo.png" alt="图标" /></a></div>
+        <div class="logo"><a href="./"><img src="/images/logo.png" alt="图标" /></a></div>
         <div class="search">
             <div class="search-box">
             	<form action="search">

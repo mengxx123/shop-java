@@ -9,7 +9,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="asset/lib/eui/eui.min.css">
-<link rel="stylesheet" href="asset/css/eadmin.css">
-<link rel="stylesheet" href="asset/css/admin/common.css">
-<link rel="stylesheet" href="asset/lib/fontAwesome/font-awesome.min.css">
+<link rel="stylesheet" href="/asset/lib/eui/eui.min.css">
+<link rel="stylesheet" href="/asset/css/eadmin.css">
+<link rel="stylesheet" href="/asset/css/admin/common.css">
+<link rel="stylesheet" href="/asset/lib/fontAwesome/font-awesome.min.css">

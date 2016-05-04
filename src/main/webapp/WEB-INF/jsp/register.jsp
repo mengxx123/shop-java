@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <jsp:include page="eshop/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/eshop/css/register.css" />
+<link rel="stylesheet" href="/asset/eshop/css/register.css" />
 </head>
 <body>
 <jsp:include flush="true" page="eshop/include_header.jsp"/>
@@ -132,7 +132,7 @@ $("#get-checkCode").click(function() {
 		setTimeout("updateTime()", 1000);
 		
 		$.ajax({ 
-		url: "api/v1.0/checkCode", 
+		url: "/api/v1.0/checkCode", 
 		data:{  
 			email: email
 		},
@@ -258,7 +258,7 @@ $("#register-submit").click(function() {
 	}
 
 	$.ajax({ 
-		url: "api/v1.0/register", 
+		url: "/api/v1.0/register", 
 		data:{  
 			account: account, 
 			nickname: nickname, 

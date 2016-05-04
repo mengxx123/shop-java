@@ -16,10 +16,9 @@
 <meta http-equiv="description" content="This is my page">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <title>我的发布 - ${websiteName}</title>
-<base href="<%=basePath%>">
 <jsp:include page="../admin/include_head.jsp"></jsp:include>
-<link rel="stylesheet" href="asset/eshop/css/common.css">
-<link rel="stylesheet" href="asset/eshop/css/another.css">
+<link rel="stylesheet" href="/asset/eshop/css/common.css">
+<link rel="stylesheet" href="/asset/eshop/css/another.css">
 </head>
 
 <body>
@@ -57,14 +56,14 @@
                     </ul>
                 </div>
                 <div class="user-detail-btn-group">
-                    <a class="btn btn-info" href="goods/release">发布商品</a>
+                    <a class="btn btn-info" href="/goods/release">发布商品</a>
                     <a class="btn btn-success">发布求购</a>
                 </div>
             </div>
 
             <ul id="myTab" class="nav nav-tabs">
                 <li class="nav-item active"><a class="nav-link">我的商品</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods_collection">商品收藏</a></li>
+                <li class="nav-item"><a class="nav-link" href="/goods_collection">商品收藏</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="user-release-goods">
@@ -77,13 +76,13 @@
 				<c:forEach var="goods" items="${page.result}">
 					<li class="goods-item col-sm-6 col-md-4 col-lg-4">
 
-                              <a class="goods-img-link" href="goodses/${goods.id}" target="_blank"><img src="${goods.image}"></a>
+                              <a class="goods-img-link" href="/goodses/${goods.id}" target="_blank"><img src="/${goods.image}"></a>
 
                               <p class="goods-item-title">${goods.name}</p>
 
                               <div class="good-item-price">
                                   <span>${goods.price}</span>
-                                  <a class="btn-xs btn btn-default pull-right goods-item-btn" href="goodses/${goods.id}/edit">编辑</button>
+                                  <a class="btn-xs btn btn-default pull-right goods-item-btn" href="/goodses/${goods.id}/edit">编辑</button>
                                   <a class="goods-delete btn-xs btn btn-default pull-right goods-item-btn" data-id="${goods.id}">删除</a>
 
                               </div>

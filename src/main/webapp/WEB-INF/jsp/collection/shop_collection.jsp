@@ -51,13 +51,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </ul>
                 </div>
                 <div class="user-detail-btn-group">
-                    <a class="btn btn-info" href="goods/release">发布商品</a>
+                    <a class="btn btn-info" href="/goods/release">发布商品</a>
                     <a class="btn btn-success">发布求购</a>
                 </div>
             </div>
 
             <ul id="myTab" class="nav nav-tabs">
-            	<li class="nav-item"><a class="nav-link" href="goodses/released">我的商品</a></li>
+            	<li class="nav-item"><a class="nav-link" href="/goodses/released">我的商品</a></li>
                 <li class="nav-item"><a class="nav-link" href="goods_collection">商品收藏</a></li>
                 <li class="nav-item active"><a class="nav-link" href="#shop-collection">店铺收藏</a></li>
             </ul>
@@ -71,9 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul class="collection-list">
 	                	<c:forEach var="collection" items="${page.result}">  
 	                		<li class="collection-item">
-                                <img class="collection-item-image" src="images/no-image.png">
+                                <img class="collection-item-image" src="/images/no-image.png">
                                 <div class="collection-item-content">
-                                    <a class="collection-item-name" href="shops/${collection.shop.id}">${collection.shop.name}</a>
+                                    <a class="collection-item-name" href="/shops/${collection.shop.id}">${collection.shop.name}</a>
                                     <p class="collection-item-desc">￥</p>
                                     <a class="collection-cancel btn btn-primary" href="cancel_shop_collection?id=${collection.id}">取消收藏</a>
                                 </div>

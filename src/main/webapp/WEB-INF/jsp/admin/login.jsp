@@ -9,9 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <title>登陆 - Eshop管理平台</title>
-<base href="<%=basePath%>">
-<link rel="stylesheet" href="css/admin_common.css" />
-<link rel="stylesheet" href="css/admin_login.css" />
+<link rel="stylesheet" href="/css/admin_common.css" />
+<link rel="stylesheet" href="/css/admin_login.css" />
 </head>
 <body>
 <div class="wrap">
@@ -26,8 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 </div>
 </div>
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery.md5.js"></script>
+<jsp:include flush="true" page="../admin/admin_footer.jsp"/>
+<script src="/asset/lib/md5/jquery.md5.js"></script>
 <script>
 /**
  * 获取url中的参数，获取不到返回null 
@@ -52,7 +51,7 @@ $(document).ready(function(e) {
 			return;
 		}
 		$.ajax({ 
-			url: "adlogin",
+			url: "/adlogin",
 			data:{  
 				account : account,  
 				password: $.md5(password)
