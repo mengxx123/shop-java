@@ -4,7 +4,7 @@
 
 一个简单的二手发布平台。
 
-采用的框架或库：Spring MVC、Spring、MyBatis、SLF4J
+采用的技术：Spring MVC、Spring、MyBatis、SLF4J、Maven
 
 ## 演示
 

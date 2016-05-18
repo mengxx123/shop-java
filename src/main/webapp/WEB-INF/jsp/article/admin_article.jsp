@@ -245,7 +245,7 @@ $(document).ready(function(e) {
  */
 function changePage(page) {
 	 var keyword = $('#search-input').val();
-	 var href = "admin/articles?page=" + page;
+	 var href = "/admin/articles?page=" + page;
 	 if (keyword != "") {
 		 href += "&keyword=" + encodeURI(keyword);
 	 }

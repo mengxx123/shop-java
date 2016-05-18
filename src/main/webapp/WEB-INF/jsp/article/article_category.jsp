@@ -228,7 +228,7 @@ $(document).ready(function(e) {
  */
 function changePage(page) {
 	 var keyword = $('#search-input').val();
-	 var href = "admin/article_categorys?page=" + page;
+	 var href = "/admin/article_categorys?page=" + page;
 	 if (keyword != "") {
 		 href += "&keyword=" + encodeURI(keyword);
 	 }

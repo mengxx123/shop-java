@@ -46,8 +46,9 @@ public class ArticleController extends BaseController {
 	private static final String VIEW_ADMIN_ARTICLE_EDIT = "article/article_edit";
 	private static final String VIEW_ARTICLE = "article/article_detail";
 	
+	// 文章详情页面
 	@RequestMapping("articles/{id}")
-    public String upload2(@PathVariable("id") String articleId, HttpServletRequest request, 
+    public String articleDetail(@PathVariable("id") String articleId, HttpServletRequest request, 
     		ModelMap modelMap) {
 		commonInit(request, modelMap);
 
@@ -67,6 +68,7 @@ public class ArticleController extends BaseController {
 		return VIEW_ARTICLE;
 	}
 
+	// 后台文章管理页面
 	@RequestMapping("admin/articles")
     public String adminArticle(HttpServletRequest request, 
     		ModelMap modelMap,
@@ -80,8 +82,9 @@ public class ArticleController extends BaseController {
 		return VIEW_ADMIN_ARTICLE;
 	}
 	
+	// 后台文章编辑页面
 	@RequestMapping("admin/articles/{id}")
-    public String upload22(@PathVariable("id") String articleId, HttpServletRequest request, 
+    public String articleEdit(@PathVariable("id") String articleId, HttpServletRequest request, 
     		ModelMap modelMap,
     		@RequestParam(value="page", defaultValue="1") Integer page) {
 		commonInit(request, modelMap);
@@ -100,6 +103,7 @@ public class ArticleController extends BaseController {
 		return VIEW_ADMIN_ARTICLE_EDIT;
 	}
 	
+	// 文章编辑接口
 	@RequestMapping(value = "admin/articles", method = RequestMethod.POST)
     public String adminArticle2222(HttpServletRequest request, 
     		ModelMap modelMap, Article article,
@@ -112,7 +116,7 @@ public class ArticleController extends BaseController {
 			article.setAddTime(new Date());
 			
 			try {
-				articleService.update(article);
+				articleService.save(article);
 				modelMap.put("article", article);
 				modelMap.put("result", "添加成功！");
 				return VIEW_ADMIN_ARTICLE_EDIT;

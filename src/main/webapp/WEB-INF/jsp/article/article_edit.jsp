@@ -23,9 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/article_edit">添加文章</a></li>
+            <li><a href="/admin/article_edit">添加文章</a></li>
         </ul>
-        <a class="admin-btn float-right" action="/admin/articles">文章列表</a>
+        <a class="admin-btn float-right" href="/admin/articles">文章列表</a>
         
         <c:if test="${result != null}">
 	    	<div class="eui-alert eui-alert-info">${result}</div>
