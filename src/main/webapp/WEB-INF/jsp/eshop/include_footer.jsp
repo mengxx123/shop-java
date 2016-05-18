@@ -13,7 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="/articles/1" target="_blank">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
             <li><a href="/articles/3" target="_blank">团队介绍</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
             <li><a href="/articles/4" target="_blank">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <li><a href="/articles/2" target="_blank">服务协议</a></li>
+            <li><a href="/articles/2" target="_blank">服务协议</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li><a href="/feedback" target="_blank">用户反馈</a></li>
         </ul>
         <p class="copyright clearfix">© 2016 <a href="/">${websiteName}</a></p>
     </div>

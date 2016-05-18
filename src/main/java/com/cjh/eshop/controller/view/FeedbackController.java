@@ -39,8 +39,9 @@ public class FeedbackController extends BaseController {
 	private static final String VIEW_ADMIN_FEEDBACK = "feedback/admin_feedback";
 	private static final String VIEW_FEEDBACK = "feedback/feedback";
 	
+	// 反馈管理页面
 	@RequestMapping("admin/feedbacks")
-	public String feedback(HttpSession session, HttpServletRequest request, ModelMap modelMap,
+	public String adminFeedback(HttpSession session, HttpServletRequest request, ModelMap modelMap,
 			@RequestParam(value="page", defaultValue = "1") Integer page,
 			@RequestParam(value="keyword", required = false) String keyword) {
 		
@@ -54,14 +55,16 @@ public class FeedbackController extends BaseController {
 		return VIEW_ADMIN_FEEDBACK;
 	}
 	
-	@RequestMapping("feedbacks")
-	public String feedback2(HttpServletRequest request, ModelMap modelMap) {
+	// 反馈页面
+	@RequestMapping("feedback")
+	public String feedback(HttpServletRequest request, ModelMap modelMap) {
 		
 		commonInit(request, modelMap);
 		
 		return VIEW_FEEDBACK;
 	}
 	
+	// 反馈添加/修改接口
 	@RequestMapping(value = "feedbacks", method = RequestMethod.POST)
 	@ResponseBody
 	public Object saveOrUpdateBrand(HttpServletRequest request, ModelMap modelMap,
@@ -92,9 +95,10 @@ public class FeedbackController extends BaseController {
 		return new JsonResult<String>(StateCode.SUCCESS, "");
 	}
 	
+	// 反馈删除接口
 	@RequestMapping("feedbacks_delete")
 	@ResponseBody
-	public Object getShop(@RequestParam(value="id") Integer id) {
+	public Object getShop(@RequestParam(value="id") String id) {
 		// TODO 安全验证 成功或失败
 		feedbackService.deleteById(id);
 		return new JsonResult<String>(StateCode.SUCCESS, "");

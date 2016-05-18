@@ -42,4 +42,12 @@ public class EshopController extends BaseController {
         
         return VIEW_REGISTER; 
     }
+	
+	// 500错误测试页面
+	@RequestMapping("500")
+    public String error500(HttpServletRequest request, ModelMap modelMap) {
+	    @SuppressWarnings("unused")
+        int i = 1 / 0; // 发生异常
+        return ""; 
+    }
 }

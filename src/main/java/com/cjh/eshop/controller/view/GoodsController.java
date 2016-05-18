@@ -570,12 +570,20 @@ public class GoodsController extends BaseController {
 		if (TextUtil.isEmpty(goods.getName())) {
 		    return new JsonResult<String>(StateCode.ERROR, "参数 name 不能为空");
 		} 
-		
+		if (goods.getName().length() > 32) {
+            return new JsonResult<String>(StateCode.ERROR, "商品名称不能大于 32 个字符");
+        }
 		if (goods.getPrice() == null) {
 		    return new JsonResult<String>(StateCode.ERROR, "参数 price 不能为空");
 		}
 		if (!isLogin) {
 			return new JsonResult<String>(StateCode.ERROR, "未登录，没有权限");
+		}
+		if (TextUtil.isEmpty(goods.getDescription())) {
+		    return new JsonResult<String>(StateCode.ERROR, "商品描述不能为空");
+		}
+		if (goods.getDescription().length() > 500) {
+		    return new JsonResult<String>(StateCode.ERROR, "商品描述不能大于 500 个字符");
 		}
 		
 		System.out.println("商品ID" + goods.getId());

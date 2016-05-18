@@ -22,8 +22,8 @@
 		order by feedback_time DESC
 	</select>
 	<insert id="insert" parameterType="Feedback">
-		insert into es_feedback(user_id, feedback_type, content)
-		values (#{user.id}, #{type}, #{content})
+		insert into es_feedback(feedback_id, user_id, feedback_type, content)
+		values (#{id}, #{user.id}, #{type}, #{content})
 	</insert>
 	<update id="updateById" parameterType="Feedback">
 		update es_feedback

@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                         <li>
                         	<span class="meta-name">商品描述</span>
-                        	<span class="meta-value">${goods.description}</span>
+                        	<span class="meta-value"><c:out escapeXml="true" value="${goods.description}"></c:out></span>
                         </li>
                     </ul>
                 </div>

@@ -243,7 +243,7 @@ function ajaxSubmit() {
              var code = json.code;
              if (code === 0) {
             	 var id = json.data;
-            	 window.location = 'goodses/' + id + '/edit';
+            	 window.location = '/goodses/' + id + '/edit';
              } else {
               	alert('发布失败，' + json.data);
              }

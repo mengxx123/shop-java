@@ -14,13 +14,13 @@ import com.cjh.eshop.service.common.BaseService;
 
 @Service
 @Transactional(rollbackFor = { Exception.class })
-public class FeedbackService extends BaseService<Feedback, Integer> implements IFeedbackService {
+public class FeedbackService extends BaseService<Feedback, String> implements IFeedbackService {
 	
 	@Resource(name = "feedbackDao")
 	private IFeedbackDao dao;
 
 	@Override
-	protected IBaseDao<Feedback, Integer> getDao() {
+	protected IBaseDao<Feedback, String> getDao() {
 		return dao;
 	}
 

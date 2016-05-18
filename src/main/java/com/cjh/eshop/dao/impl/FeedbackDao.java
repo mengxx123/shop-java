@@ -15,7 +15,7 @@ import com.cjh.eshop.util.IdGenerator;
 import com.github.pagehelper.PageHelper;
 
 @Repository
-public class FeedbackDao extends BaseDao<Feedback, Integer> implements IFeedbackDao {
+public class FeedbackDao extends BaseDao<Feedback, String> implements IFeedbackDao {
 	
 	@Resource(name = "sqlSessionTemplate")
 	private SqlSessionTemplate sqlSession;
@@ -23,16 +23,24 @@ public class FeedbackDao extends BaseDao<Feedback, Integer> implements IFeedback
 	final String MAPPER = ASD + "feedbackMapper.";
 	
 	@Override
-	public Feedback getById(Integer id) {
+	public Feedback getById(String id) {
 		return sqlSession.selectOne(MAPPER + "selectById", id);
 	}
 
 	@Override
-	public Integer save(Feedback entity) {
+    public PageInfo<Feedback> getAllFeedback(int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        List<Feedback> feedback =  sqlSession.selectList(MAPPER + "getAll");
+        PageInfo<Feedback> page = new PageInfo<Feedback>(feedback);
+        return page;    
+    }
+	
+	@Override
+	public String save(Feedback entity) {
 		String id = IdGenerator.getId();
 		entity.setId(id);
 		sqlSession.insert(MAPPER + "insert", entity);
-		return null; // TODO
+		return id;
 	}
 
 	@Override
@@ -41,16 +49,8 @@ public class FeedbackDao extends BaseDao<Feedback, Integer> implements IFeedback
 	}
 
 	@Override
-	public void deleteById(Integer id) {
+	public void deleteById(String id) {
 		sqlSession.delete(MAPPER + "deleteById", id);
 	}
 
-	@Override
-	public PageInfo<Feedback> getAllFeedback(int pageNo, int pageSize) {
-		PageHelper.startPage(pageNo, pageSize);
-		List<Feedback> feedback =  sqlSession.selectList(MAPPER + "getAll");
-		PageInfo<Feedback> page = new PageInfo<Feedback>(feedback);
-		return page;	
-	}
-	
 }

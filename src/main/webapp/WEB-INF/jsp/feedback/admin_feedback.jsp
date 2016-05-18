@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 		                	<td><input type="checkbox" name="article-select" value="${feedback.id}"></td>
 		                	<td>普通反馈</td>
-		                    <td><a href="">${feedback.content}</a></td>
+		                    <td><a href=""><c:out escapeXml="true" value="${feedback.content}"/></a></td>
 		                    <td><a href="">${feedback.user.name}</a></td>
 		                    <td><fmt:formatDate value="${feedback.time}" pattern="yyyy-M-d HH:mm:ss" /></td>
 		                    <td><a href="javascript:;" onclick="read(${feedback.id})"><img src="/images/admin/icon_yes.gif" /></a></td>

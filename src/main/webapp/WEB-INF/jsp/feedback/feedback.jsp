@@ -14,11 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 
-<jsp:include flush="true" page="../include_head.jsp"/>
+<jsp:include flush="true" page="../eshop/include_head.jsp"/>
 
 </head>
 <body>
-<jsp:include flush="true" page="../include_header.jsp"/>
+<jsp:include flush="true" page="../eshop/include_header.jsp"/>
 <div class="container">
 	<c:choose>  
 	<c:when test="${isLogin == true}">     
@@ -38,9 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</c:choose>
 	
 </div>
-<jsp:include flush="true" page="../include_footer.jsp"/>
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery.md5.js"></script>
+<jsp:include flush="true" page="../eshop/include_footer.jsp"/>
 <script>
 
 $("#btn-submit").click(function() {
