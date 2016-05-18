@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>  
 					<c:forEach var="seller" items="${page.result}">
-						<tr>
+						<tr id="seller-${seller.id}">
 		                	<td><input type="checkbox" name="article-select" value="${seller.id}"></td>
 		                    <td>${seller.name}</td>
 		                    <td>${seller.account}</td>
@@ -97,57 +97,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var page = ${page.currentPage}; // 当前页
 var totalPage = ${page.totalPage}; // 总页数
 
-function operateOk() {
-
-}
-
-/* 删除反馈，带提示 */
 function deleteItem(id) {
-	if (confirm("你确定删除该商家吗？")) {
-		$.ajax({ 
-			url: "/user_delete?id=" + id, 
-			dataType: 'json', 
-			success: function(obj) {
-				if (obj.code === 0) {
-					location.reload(true); 
-				} else {
-					alert("删除失败，" + obj.data);
-				}
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrow) {
-				//alert("异常！");
-				alert(XMLHttpRequest.status);
-	            alert(XMLHttpRequest.readyState);
-	            alert(textStatus);
-			}
-		});
-	}
-}
-
-/* 删除反馈，不带提示，同步执行 */
-function deleteItem2(id) {
-	$.ajax({ 
-		url: "/user_delete?id=" + id, 
-		type: 'get', 
-		cache: false,
-		async: false,
-		dataType: 'html', 
-		success: function(data) {
-			var jsonObj = eval('(' + data + ')');
-			var state = jsonObj.state;
-			if (state == "success") {
-				//location.reload(true); 
-			} else {
-				//alert("删除失败");
-			}
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrow) {
-			//alert("异常！");
-			//alert(XMLHttpRequest.status);
-            //alert(XMLHttpRequest.readyState);
-            //alert(textStatus);
-		}
-	});
+	var text = '你确定删除该商家吗？';
+	var url = '/user_delete?id=' + id;
+	var onSuccess = function() {
+		$('#seller-' + id).remove();
+	};
+	ajaxDelete(text, url, onSuccess);
 }
 
 /* 搜索表单验证 */

@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<div class="eui-alert eui-alert-info">${result}</div>
 	    </c:if>
 
-    	<form class="form-horizontal" action="brand" method="post" enctype="multipart/form-data">
+    	<form class="form-horizontal" action="brands" method="post" enctype="multipart/form-data">
     		<input type="hidden" name="id" value="${brand.id}">
     		<div class="form-group">
     			<label class="control-label col-sm-3">品牌名称 *</label>

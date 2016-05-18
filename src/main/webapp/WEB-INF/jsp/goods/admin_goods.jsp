@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>
 					<c:forEach var="goods" items="${page.result}">   
-						<tr>
+						<tr id="goods-${goods.id}">
 		                	<td><input type="checkbox" name="article-select" value="${goods.id}"></td>
 		                	<td><a href="/admin/goodses/${goods.id}" target="_blank">${goods.name}</a></td>
 		                	<c:choose>
@@ -161,16 +161,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var page = ${page.currentPage}; // 当前页
 var totalPage = ${page.totalPage}; // 总页数
 
-function operateOk() {
-
-}
-
-/* 删除反馈，带提示 */
 function deleteItem(id) {
 	var text = '你确定删除该商品吗？';
-	var url = 'goods_delete?id=' + id;
+	var url = '/goods_delete?id=' + id;
 	var onSuccess = function() {
-		location.reload(true); 
+		$('#goods-' + id).remove();
 	};
 	ajaxDelete(text, url, onSuccess);
 }

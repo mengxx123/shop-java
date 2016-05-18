@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>  
 					<c:forEach var="brand" items="${page.result}">
-						<tr>
+						<tr id="brand-${brand.id}">
 		                	<td><input type="checkbox" name="article-select" value="${brand.id}"></td>
 		                    <td>${brand.name}</td>
 		                    <c:choose>  
@@ -117,37 +117,11 @@ function operateOk() {
 /* 删除反馈，带提示 */
 function deleteItem(id) {
 	var text = '你确定删除该品牌吗？';
-	var url = 'brand_delete?id=' + id;
+	var url = '/brand_delete?id=' + id;
 	var onSuccess = function() {
-		location.reload(true); 
+		$('#brand-' + id).remove();
 	};
 	ajaxDelete(text, url, onSuccess);
-}
-
-/* 删除反馈，不带提示，同步执行 */
-function deleteItem2(id) {
-	$.ajax({ 
-		url: "/brand_delete?id=" + id, 
-		type: 'get', 
-		cache: false,
-		async: false,
-		dataType: 'html', 
-		success: function(data) {
-			var jsonObj = eval('(' + data + ')');
-			var state = jsonObj.state;
-			if (state == "success") {
-				//location.reload(true); 
-			} else {
-				//alert("删除失败");
-			}
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrow) {
-			//alert("异常！");
-			//alert(XMLHttpRequest.status);
-            //alert(XMLHttpRequest.readyState);
-            //alert(textStatus);
-		}
-	});
 }
 
 /* 搜索表单验证 */
@@ -242,7 +216,7 @@ $(document).ready(function(e) {
  */
 function changePage(page) {
 	 var keyword = $('#search-input').val();
-	 var href = "admin/brands?page=" + page;
+	 var href = "/admin/brands?page=" + page;
 	 if (keyword != "") {
 		 href += "&keyword=" + encodeURI(keyword);
 	 }

@@ -41,6 +41,7 @@ public class BrandController extends BaseController {
 	
 	private static Logger logger = LoggerFactory.getLogger(BrandController.class);
 	
+	// 后台品牌管理页面
 	@RequestMapping("admin/brands")
 	public String brand(HttpSession session, HttpServletRequest request,
 			ModelMap modelMap,
@@ -59,6 +60,7 @@ public class BrandController extends BaseController {
 		return URL_ADMIN_BRAND;
 	}
 	
+	// 品牌删除接口
 	@RequestMapping("brand_delete")
 	@ResponseBody
 	public Object delete(HttpServletRequest request, @RequestParam(value="id") String id) {
@@ -77,13 +79,15 @@ public class BrandController extends BaseController {
 		
 	}
 	
+	// 添加品牌页面
 	@RequestMapping("admin/brand_edit")
     public String brandEdit(HttpServletRequest request, 
     		ModelMap modelMap) {
 		return URL_ADMIN_BRAND_EDIT;	
 	}
 	
-	@RequestMapping(value = "brand", method = RequestMethod.POST)
+	// 品牌添加/修改接口
+	@RequestMapping(value = "brands", method = RequestMethod.POST)
 	public String saveOrUpdateBrand(HttpServletRequest request, Brand brand, ModelMap modelMap,
 			@RequestParam(value = "myfile", required = false) CommonsMultipartFile[] files) {
 		if (TextUtil.isEmpty(brand.getName())) {
@@ -130,8 +134,7 @@ public class BrandController extends BaseController {
 		}
 	}
 	
-	
-	
+	// 品牌修改页面
 	@RequestMapping("admin/brand/{id}")
     public String getBrandById(@PathVariable("id") String brandId, HttpServletRequest request, 
     		ModelMap modelMap) {

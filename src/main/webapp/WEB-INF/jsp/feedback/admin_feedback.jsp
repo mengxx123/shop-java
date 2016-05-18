@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>  
 					<c:forEach var="feedback" items="${page.result}">   
-						<tr>
+						<tr id="feedback-${feedback.id}">
 		                	<td><input type="checkbox" name="article-select" value="${feedback.id}"></td>
 		                	<td>普通反馈</td>
 		                    <td><a href=""><c:out escapeXml="true" value="${feedback.content}"/></a></td>
@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td><a href="javascript:;" onclick="read(${feedback.id})"><img src="/images/admin/icon_yes.gif" /></a></td>
 		                    <td>
 		                    	<a class="btn btn-info btn-xs" href="sections/${feedback.id}" target="_blank" title="查看"><i class="fa fa-eye"></i></a>
-	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem(${feedback.id})" title="删除"><i class="fa fa-trash"></i></a>
+	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${feedback.id}')" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 						</tr>
 					</c:forEach>
@@ -115,57 +115,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<p class="copyright">版权所有 © 2015-2016 Eshop</p>
     </div>
 </div>
-<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+<jsp:include flush="true" page="../admin/admin_footer.jsp"/>
 
 <script>
 var page = ${page.currentPage}; // 当前页
 var totalPage = ${page.totalPage}; // 总页数
 
-function operateOk() {
-
-}
-
 function deleteItem(id) {
 	var text = '你确定删除该反馈吗？';
-	var url = 'feedbacks_delete?id=' + id;
+	var url = '/feedbacks_delete?id=' + id;
 	var onSuccess = function() {
-		location.reload(true); 
+		$('#feedback-' + id).remove();
 	};
 	ajaxDelete(text, url, onSuccess);
-}
-
-/* 删除反馈，不带提示，同步执行 */
-function deleteItem2(id) {
-	$.ajax({ 
-		url: "/feedback_delete?id=" + id, 
-		type: 'get', 
-		cache: false,
-		async: false,
-		dataType: 'html', 
-		success: function(data) {
-			var jsonObj = eval('(' + data + ')');
-			var state = jsonObj.state;
-			if (state == "success") {
-				//location.reload(true); 
-			} else {
-				//alert("删除失败");
-			}
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrow) {
-			//alert("异常！");
-			//alert(XMLHttpRequest.status);
-            //alert(XMLHttpRequest.readyState);
-            //alert(textStatus);
-		}
-	});
-}
-
-function read(id) {
-	alert("已读" + id);
-}
-
-function unread(id) {
-	alert("未读" + id);
 }
 
 $(document).ready(function(e) {
@@ -246,7 +208,7 @@ $(document).ready(function(e) {
  */
 function changePage(page) {
 	 var keyword = $('#search-input').val();
-	 window.location.href = "admin/feedbacks?page=" + page + "&keyword=" + encodeURI(keyword);
+	 window.location.href = "/admin/feedbacks?page=" + page + "&keyword=" + encodeURI(keyword);
 }
 </script>
 </body>

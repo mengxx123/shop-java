@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>  
 					<c:forEach var="article" items="${page.result}">
-						<tr>
+						<tr id="article-${article.id}">
 		                	<td><input type="checkbox" name="article-select" value="${article.id}" /></td>
 		                    <td><a href="">${article.category.name}</a></td>
 		                    <td><a href="/admin/articles/${article.id}">${article.title}</a></td>
@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td>
 		                    	<a class="btn btn-info btn-xs" href="/articles/${article.id}" target="_blank" title="查看"><i class="fa fa-eye"></i></a>
 	                    		<a class="btn btn-success btn-xs" href="/admin/articles/${article.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
-	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem(${article.id})" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
+	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${article.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>
 					</c:forEach>
@@ -133,9 +133,9 @@ var totalPage = ${page.totalPage}; // 总页数
 
 function deleteItem(id) {
 	var text = '你确定删除该文章吗？';
-	var url = 'article_delete?id=' + id;
+	var url = '/article_delete?id=' + id;
 	var onSuccess = function() {
-		location.reload(true); 
+		$('#article-' + id).remove();
 	};
 	ajaxDelete(text, url, onSuccess);
 }

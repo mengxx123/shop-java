@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:when>  
 				<c:otherwise>  
 					<c:forEach var="category" items="${page.result}">
-						<tr>
+						<tr id="category-${category.id}">
 		                	<td><input type="checkbox" name="article-select" value="${category.id}"></td>
 		                    <td>${category.name}</td>
 		                    <c:choose>
@@ -108,44 +108,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var page = ${page.currentPage}; // 当前页
 var totalPage = ${page.totalPage}; // 总页数
 
-function operateOk() {
-
-}
-
-/* 删除反馈，带提示 */
 function deleteItem(id) {
 	var text = '你确定删除该类别吗？';
-	var url = 'category_delete?id=' + id;
+	var url = '/category_delete?id=' + id;
 	var onSuccess = function() {
-		location.reload(true); 
+		$('#category-' + id).remove();
 	};
 	ajaxDelete(text, url, onSuccess);
-}
-
-/* 删除反馈，不带提示，同步执行 */
-function deleteItem2(id) {
-	$.ajax({ 
-		url: "/category_delete?id=" + id, 
-		type: 'get', 
-		cache: false,
-		async: false,
-		dataType: 'html', 
-		success: function(data) {
-			var jsonObj = eval('(' + data + ')');
-			var state = jsonObj.state;
-			if (state == "success") {
-				//location.reload(true); 
-			} else {
-				//alert("删除失败");
-			}
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrow) {
-			//alert("异常！");
-			//alert(XMLHttpRequest.status);
-            //alert(XMLHttpRequest.readyState);
-            //alert(textStatus);
-		}
-	});
 }
 
 /* 搜索表单验证 */
