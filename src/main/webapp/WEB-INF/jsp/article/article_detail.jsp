@@ -40,47 +40,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <!-- 内容结束 -->
 <jsp:include flush="true" page="../eshop/include_footer.jsp"/>
-<script>
-(
-	function($) {
-		$.fn.accordion = function(options) {
-		return this.each(function() {
-			var settings = $.extend({
-            	multiExpand: false,
-            	slideSpeed: 500,
-            	dropDownIcon: '&#9660',	// 图标
-				header: '.accordion-header',
-				content: '.accordion-content'
-         		}, options );
-				
-			var accor = $(this);
-			
-        	$(this).children(settings.header).each(function() {
-				$(this).next(settings.content).andSelf().wrapAll("<div class='accordion-item'></div>");
-			});
-			$(this).find(".accordion-header").click(function() {
-				
-					if (settings.multiExpand == false) {
-						if (!$(this).hasClass('accordion-header-active')) {
-							accor.find(".accordion-header-active").removeClass('accordion-header-active');
-							accor.find(".accordion-item-active").children(".accordion-content").slideUp(settings.slideSpeed);
-							accor.find(".accordion-item-active").removeClass("accordion-item-active");
-						}
-					}
-				
-					$(this).toggleClass("accordion-header-active");
-					$(this).parent().toggleClass("accordion-item-active");
-					$(this).next().slideToggle(settings.slideSpeed);
-				}
-			);	
-		});
-		}
-	}
-(jQuery));
-</script>
-<script>
-	$(".accordion").accordion();
-</script>
-
 </body>
 </html>

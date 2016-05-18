@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/feedbacks">反馈列表</a></li>
+            <li><a href="/admin/feedbacks">反馈列表</a></li>
         </ul>
 		
 		<div class="">

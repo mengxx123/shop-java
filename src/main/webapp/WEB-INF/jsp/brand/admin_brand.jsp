@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/brands">品牌列表</a></li>
+            <li><a href="/admin/brands">品牌列表</a></li>
         </ul>
 		<div>
 			<form class="form-inline pull-left" action="/admin/brands" method="get" accept-charset="utf-8">
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </div>
 	        </form>
 	        <div class="pull-right">
-	        	<a class="btn btn-primary" action="/admin/brand_edit">添加商品品牌</a>
+	        	<a class="btn btn-primary" href="/admin/brand_edit">添加商品品牌</a>
 	        </div>
 		</div>
 	    	
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                    </c:otherwise>
 		                    </c:choose>  
 		                    <td>
-	                    		<a class="btn btn-success btn-xs" action="/admin/brand/${brand.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" href="/admin/brand/${brand.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${brand.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>

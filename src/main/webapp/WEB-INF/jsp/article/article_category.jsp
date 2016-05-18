@@ -37,9 +37,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/article_categorys">文章类别列表</a></li>
+            <li><a href="/admin/article_categorys">文章类别列表</a></li>
         </ul>
-        <a class="admin-btn float-right" action="/admin/article_category_edit">添加文章类别</a>
+        <a class="admin-btn float-right" href="/admin/article_category_edit">添加文章类别</a>
 
     	<form action="/admin/brand" method="get" accept-charset="utf-8">
 	        <label class="admin-label">品牌名称</label>
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td>${category.parent.name}</td>
 		                    <td>${category.description}</td>
 		                    <td>
-		                    	<a class="btn btn-success btn-xs" action="/admin/article_category/${category.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+		                    	<a class="btn btn-success btn-xs" href="/admin/article_category/${category.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${category.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>

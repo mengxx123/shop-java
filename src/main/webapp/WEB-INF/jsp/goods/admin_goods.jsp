@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/goodses">商品列表</a></li>
+            <li><a href="/admin/goodses">商品列表</a></li>
         </ul>
         
 		<div>
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </div>
 	        </form>
 	        
-	        <a class="btn btn-primary pull-right" action="/admin/goods_edit">添加商品</a>
+	        <a class="btn btn-primary pull-right" href="/admin/goods_edit">添加商品</a>
 		</div>
 			
 
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:forEach var="goods" items="${page.result}">   
 						<tr>
 		                	<td><input type="checkbox" name="article-select" value="${goods.id}"></td>
-		                	<td><a action="/admin/goodses/${goods.id}" target="_blank">${goods.name}</a></td>
+		                	<td><a href="/admin/goodses/${goods.id}" target="_blank">${goods.name}</a></td>
 		                	<c:choose>
 		                		<c:when test="${goods.category == null}">
 		                			<td>${goods.category.id}</td>
@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <td><a href="javascript:;" onclick="read(1)"><img src="/images/admin/icon_yes.gif" /></a></td> 
 		                    <td>
 		                    	<a class="btn btn-info btn-xs" href="/goodses/${goods.id}" target="_blank" title="查看"><i class="fa fa-eye"></i></a>
-	                    		<a class="btn btn-success btn-xs" action="/admin/goodses/${goods.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" href="/admin/goodses/${goods.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem('${goods.id}')" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
                     
@@ -173,40 +173,6 @@ function deleteItem(id) {
 		location.reload(true); 
 	};
 	ajaxDelete(text, url, onSuccess);
-}
-
-/* 删除反馈，不带提示，同步执行 */
-function deleteItem2(id) {
-	$.ajax({ 
-		url: "/goods_delete?id=" + id, 
-		type: 'get', 
-		cache: false,
-		async: false,
-		dataType: 'html', 
-		success: function(data) {
-			var jsonObj = eval('(' + data + ')');
-			var state = jsonObj.state;
-			if (state == "success") {
-				//location.reload(true); 
-			} else {
-				//alert("删除失败");
-			}
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrow) {
-			//alert("异常！");
-			//alert(XMLHttpRequest.status);
-            //alert(XMLHttpRequest.readyState);
-            //alert(textStatus);
-		}
-	});
-}
-
-function read(id) {
-	alert("已读" + id);
-}
-
-function unread(id) {
-	alert("未读" + id);
 }
 
 $(document).ready(function(e) {

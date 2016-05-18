@@ -41,9 +41,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row">
 		<ul class="breadcrumb">
             <li><a href="/admin" target="_blank">eSchool管理平台</a></li>
-            <li><a action="/admin/articles">文章列表</a></li>
+            <li><a href="/admin/articles">文章列表</a></li>
         </ul>
-        <a class="btn btn-primary pull-right" action="/admin/article_edit">添加文章</a>
+        <a class="btn btn-primary pull-right" href="/admin/article_edit">添加文章</a>
         
         <c:if test="${result != null}">
 	    	<div class="admin-section">
@@ -93,12 +93,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 		                	<td><input type="checkbox" name="article-select" value="${article.id}" /></td>
 		                    <td><a href="">${article.category.name}</a></td>
-		                    <td><a action="/admin/articles/${article.id}">${article.title}</a></td>
+		                    <td><a href="/admin/articles/${article.id}">${article.title}</a></td>
 		                    <td>${article.content}</td>
 		                    <td><fmt:formatDate value="${article.addTime}" pattern="yyyy-M-d HH:mm:ss" /></td>
 		                    <td>
 		                    	<a class="btn btn-info btn-xs" href="/articles/${article.id}" target="_blank" title="查看"><i class="fa fa-eye"></i></a>
-	                    		<a class="btn btn-success btn-xs" action="/admin/articles/${article.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
+	                    		<a class="btn btn-success btn-xs" href="/admin/articles/${article.id}" target="_blank" title="编辑"><i class="fa fa-edit"></i></a>
 	                    		<a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteItem(${article.id})" target="_blank" title="删除"><i class="fa fa-trash"></i></a>
 		                    </td>
 		                </tr>
