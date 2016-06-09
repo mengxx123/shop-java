@@ -9,15 +9,16 @@ public class City implements Serializable {
 
     private static final long serialVersionUID = -8561699080871973286L;
 
-    private String id;
-    private String code;
+    private Integer id;
+    private Integer code;
     private String name;
+    private Province province;
     
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -29,12 +30,20 @@ public class City implements Serializable {
         this.name = name;
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 
 }

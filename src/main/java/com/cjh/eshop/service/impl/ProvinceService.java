@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cjh.eshop.dao.IProvinceDao;
-import com.cjh.eshop.dao.IShopDao;
 import com.cjh.eshop.dao.common.IBaseDao;
 import com.cjh.eshop.model.Province;
 import com.cjh.eshop.service.IProvinceService;
