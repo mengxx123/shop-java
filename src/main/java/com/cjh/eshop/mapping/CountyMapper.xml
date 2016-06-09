@@ -10,7 +10,7 @@
 		</association>
 	</resultMap>
 	<sql id="Base_Column_List">
-		county_id, county_name, county_name, city_code
+		county_id, county_code, county_name, city_code
 	</sql>
 	<select id="selectByCityCode" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" />

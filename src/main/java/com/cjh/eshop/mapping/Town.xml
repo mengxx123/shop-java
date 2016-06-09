@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjh.eshop.mapping.townMapper">
+	<resultMap id="BaseResultMap" type="Town">
+		<id column="town_id" property="id" />
+		<result column="town_name" property="name" />
+		<result column="town_code" property="code" />
+		<association property="county" javaType="County">
+			<id column="county_code" property="code" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		town_id, town_name, town_code, county_code
+	</sql>
+	<select id="selectByCountyCode" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from es_town
+		where county_code = #{code}
+	</select>
+</mapper>
