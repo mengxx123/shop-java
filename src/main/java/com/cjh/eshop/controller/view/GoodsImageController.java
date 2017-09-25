@@ -89,7 +89,7 @@ public class GoodsImageController extends BaseController {
 			@RequestParam("goods_id") String goodsId,
 			@RequestParam(value = "file", required = false) MultipartFile file) {
 		
-		commonInit(request, modelMap);
+		commonInit(request, modelMap); // TODO 删除
 		
 		if (TextUtil.isEmpty(goodsId)) {
 			return new JsonResult<String>(StateCode.ERROR, "商品ID不能为空");

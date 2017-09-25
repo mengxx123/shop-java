@@ -1,3 +1,4 @@
-/target
-/.settings
-/todo.md
+target
+.settings
+tmp
+.idea
